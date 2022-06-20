@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiemensECommerce.UI", "Siem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiemensECommerce.Data", "SiemensECommerce.Data\SiemensECommerce.Data.csproj", "{C8BF60D2-355C-4104-BBA0-BD6176B4E5C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiemensECommerce.Business", "SiemensECommerce.Business\SiemensECommerce.Business.csproj", "{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C8BF60D2-355C-4104-BBA0-BD6176B4E5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8BF60D2-355C-4104-BBA0-BD6176B4E5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8BF60D2-355C-4104-BBA0-BD6176B4E5C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

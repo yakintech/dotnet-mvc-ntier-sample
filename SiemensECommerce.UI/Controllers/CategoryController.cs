@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SiemensECommerce.Business.Manager;
 using SiemensECommerce.Data.ORM;
 
 namespace SiemensECommerce.UI.Controllers
@@ -7,9 +8,9 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            SiemensECommerceContext db = new SiemensECommerceContext();
+            CategoryManager categoryManager = new CategoryManager();
+            var categories = categoryManager.GetCategories();
 
-            var categories = db.Categories.ToList();
             return View();
         }
     }

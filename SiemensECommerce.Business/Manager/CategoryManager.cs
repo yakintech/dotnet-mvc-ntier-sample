@@ -14,7 +14,7 @@ namespace SiemensECommerce.Business.Manager
         public List<Category> GetCategories()
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
-            var categories = db.Categories.ToList();
+            var categories = db.Categories.Where(q => q.IsDeleted == false).ToList();
             return categories;
         }
 
@@ -29,6 +29,10 @@ namespace SiemensECommerce.Business.Manager
         public void Add(Category category)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
+            category.AddDate = DateTime.Now;
+            category.IsDeleted = false;
+
+
             db.Categories.Add(category);
             db.SaveChanges();
         }
@@ -37,6 +41,8 @@ namespace SiemensECommerce.Business.Manager
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
             Category category = db.Categories.FirstOrDefault(c => c.Id == id);
+            
+            if(category != null)
             category.IsDeleted = true;
 
             db.SaveChanges();

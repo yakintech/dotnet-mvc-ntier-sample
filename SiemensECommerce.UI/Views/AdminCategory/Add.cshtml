@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+@model Category
+
+
+<form action='/AdminCategory/Add' method='post'>
+
+    <div class="form-group">
+        <label>Name:</label>
+        @Html.TextBoxFor(q => q.Name, new{ @class="form-control" })
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form>

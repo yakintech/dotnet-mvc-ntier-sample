@@ -11,6 +11,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Name</td>
+                    <td><a href='/AdminCategory/Update/@item.Id'>Update</a></td>
                     <td><a href="/AdminCategory/Delete/@item.Id">Delete</a></td>
                 </tr>
             }

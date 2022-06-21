@@ -47,5 +47,18 @@ namespace SiemensECommerce.Business.Manager
 
             db.SaveChanges();
         }
+
+        public void Update(Category category)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+
+            //Önce güncellenecek kategori db den bulunur.
+            var updateCategory = db.Categories.FirstOrDefault(c => c.Id == category.Id);
+
+            //sonra bu kateori dışarıdan gelen değer ile güncellenir
+            updateCategory.Name = category.Name;
+
+            db.SaveChanges();
+        }
     }
 }

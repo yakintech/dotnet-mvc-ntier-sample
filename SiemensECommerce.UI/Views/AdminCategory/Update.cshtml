@@ -5,14 +5,14 @@
 @model Category
 
 
-<form action='/AdminCategory/Add' method='post'>
+<form action='/AdminCategory/Update' method='post'>
 
+    @Html.HiddenFor(q => q.Id)
     <div class="form-group">
         <label>Name:</label>
         @Html.TextBoxFor(q => q.Name, new{ @class="form-control" })
-
     </div>
     <div>
-        <button type="submit">Add</button>
+        <button type="submit">Update</button>
     </div>
 </form>

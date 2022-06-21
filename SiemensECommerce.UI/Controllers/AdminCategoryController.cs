@@ -42,6 +42,27 @@ namespace SiemensECommerce.UI.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            //Önce update edilecek category bulunur ve ekrandaki inputlar doldurulur
+
+            CategoryManager categoryManager = new CategoryManager();
+            Category category = categoryManager.GetCategoryById(id);
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Category model)
+        {
+            CategoryManager categoryManager = new CategoryManager();
+
+            categoryManager.Update(model);
+
+            return RedirectToAction("Index");
+        }
+
         
     }
 }

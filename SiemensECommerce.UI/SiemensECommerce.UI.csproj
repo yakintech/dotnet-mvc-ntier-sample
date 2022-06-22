@@ -11,4 +11,8 @@
     <ProjectReference Include="..\SiemensECommerce.Data\SiemensECommerce.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\image\" />
+  </ItemGroup>
+
 </Project>

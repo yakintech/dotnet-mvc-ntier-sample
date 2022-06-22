@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SiemensECommerce.UI.Controllers
 {
-    public class AdminHomeController : Controller
+
+    public class AdminHomeController : AdminBaseController
     {
-        [Authorize]
+     
         public IActionResult Index()
         {
             return View();

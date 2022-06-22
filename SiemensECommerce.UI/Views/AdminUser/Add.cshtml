@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+@model SiemensECommerce.UI.Models.VM.AdminUserVM
+
+<form action="/AdminUser/Add" method="post" >
+
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        <label>Email:</label>
+        @Html.TextBoxFor(q => q.EMail, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        <label>Password:</label>
+        @Html.PasswordFor(q => q.Password, new {@class = "form-control"})
+    </div>
+
+        <div class="form-group">
+        <label>Password:</label>
+        @Html.PasswordFor(q => q.ConfirmPassword, new {@class = "form-control"})
+    </div>
+
+    <div>
+        <button>Add</button>
+    </div>
+
+</form>

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SiemensECommerce.Business\SiemensECommerce.Business.csproj" />
     <ProjectReference Include="..\SiemensECommerce.Data\SiemensECommerce.Data.csproj" />
   </ItemGroup>

@@ -20,5 +20,13 @@ namespace SiemensECommerce.Business.Manager
 
         }
 
+
+        public static void Add(AdminUser adminUser)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            db.AdminUsers.Add(adminUser);
+            db.SaveChanges();
+        }
+
     }
 }

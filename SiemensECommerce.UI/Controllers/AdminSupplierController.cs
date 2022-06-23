@@ -45,5 +45,21 @@ namespace SiemensECommerce.UI.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            SupplierManager supplierManager = new SupplierManager();
+            Supplier supplier = supplierManager.GetSupplierById(id);
+            return View(supplier);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Supplier supplier)
+        {
+            SupplierManager supplierManager = new SupplierManager();
+            supplierManager.Update(supplier);
+            return RedirectToAction("Index");
+        }
     }
 }

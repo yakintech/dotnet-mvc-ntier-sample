@@ -15,6 +15,7 @@
                 <th>Contact Title</th>
                 <th>Address</th>
                 <th>Country</th>
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -29,8 +30,12 @@
                     <td>@item.Address</td>
                     <td>@item.Country</td>
                     <td>
+                        <button><a href="/AdminSupplier/Update/@item.Id">Update</a></button>
+                    </td>
+                    <td>
                         <button><a href="/AdminSupplier/Delete/@item.Id">Delete</a></button>
                     </td>
+                      
                 </tr>
 
             }

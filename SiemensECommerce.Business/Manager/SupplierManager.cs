@@ -19,6 +19,13 @@ namespace SiemensECommerce.Business.Manager
             db.Suppliers.Add(supplier);
             db.SaveChanges();
         }
+        public Supplier GetSupplierById(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Supplier supplier = db.Suppliers.FirstOrDefault(c => c.Id == id);
+
+            return supplier;
+        }
         public List<Supplier> GetSuppliers()
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
@@ -34,7 +41,20 @@ namespace SiemensECommerce.Business.Manager
             supplier.IsDeleted = true;
             db.SaveChanges();
 
-            
+        }
+        public void Update (Supplier supplier)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var updatesupplier =db.Suppliers.FirstOrDefault(q => q.Id == supplier.Id);
+            updatesupplier.CompanyName = supplier.CompanyName;
+            updatesupplier.ContactName= supplier.ContactName;
+            updatesupplier.ContactTitle= supplier.ContactTitle;
+            updatesupplier.Address= supplier.Address;
+            updatesupplier.Country= supplier.Country;
+
+            db.SaveChanges();
+
+
         }
     }
 }

@@ -12,14 +12,13 @@ namespace SiemensECommerce.Data.ORM
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            (optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS; Database=SiemensECommerce; trusted_connection = true"));
+
+            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS; Database=SiemensECommerce; trusted_connection=true");
+
         }
 
 
-        static string GetDatabaseConnectionStringFromEnvironment()
-        {
-            return Environment.GetEnvironmentVariable("db_connection");
-        }
+
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }

@@ -9,7 +9,10 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            SupplierManager supplierManager = new SupplierManager();
+
+            var suppliers = supplierManager.GetSuppliers();
+            return View(suppliers);
         }
 
         public IActionResult Add() { 
@@ -34,5 +37,6 @@ namespace SiemensECommerce.UI.Controllers
             else
                 return View();
         }
+        
     }
 }

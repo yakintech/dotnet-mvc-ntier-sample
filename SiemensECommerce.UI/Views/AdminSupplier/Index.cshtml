@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
 }
+
+@model List<Supplier>
+
+    <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Company Name</th>
+                <th>Contact Name</th>
+                <th>Contact Title</th>
+                <th>Address</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.ContactTitle</td>
+                    <td>@item.Address</td>
+                    <td>@item.Country</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

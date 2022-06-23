@@ -18,7 +18,12 @@ namespace SiemensECommerce.Business.Manager
 
             db.Suppliers.Add(supplier);
             db.SaveChanges();
-
+        }
+        public List<Supplier> GetSuppliers()
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var suppliers = db.Suppliers.Where(x => x.IsDeleted == false).ToList();
+            return suppliers;
         }
     }
 }

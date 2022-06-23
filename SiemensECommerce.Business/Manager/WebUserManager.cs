@@ -54,7 +54,7 @@ namespace SiemensECommerce.Business.Manager
             var updateCategory = db.WebUsers.FirstOrDefault(c => c.Id == webUser.Id);
 
             //sonra bu kateori dışarıdan gelen değer ile güncellenir
-            updateCategory.Namwe = webUser.Namwe;
+            updateCategory.Name = webUser.Name;
 
             db.SaveChanges();
         }

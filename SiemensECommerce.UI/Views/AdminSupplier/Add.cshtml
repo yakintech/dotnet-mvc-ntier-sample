@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+@model Supplier
+
+<form action='/AdminSupplier/Add' method='post'>
+     @Html.ValidationSummary()
+    <div class="form-group">
+        <label> Company Name: </label>
+        @Html.TextBoxFor(q => q.CompanyName, new{ @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label> Contact Name: </label>
+        @Html.TextBoxFor(q => q.ContactName, new{ @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label> Contact Title: </label>
+        @Html.TextBoxFor(q => q.ContactTitle, new{ @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label> Address: </label>
+        @Html.TextBoxFor(q => q.Address, new{ @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label> Country: </label>
+        @Html.TextBoxFor(q => q.Country, new{ @class="form-control" })
+    </div>
+
+    <div>
+        <button>Add</button>
+    </div>
+
+</form>

@@ -18,6 +18,7 @@ namespace SiemensECommerce.Data.ORM
         public DbSet<Category> Categories { get; set; }
         public DbSet<AdminUser> AdminUsers { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<WebUser> WebUsers { get; set; }
 
     }
 }

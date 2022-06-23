@@ -5,30 +5,29 @@ using SiemensECommerce.UI.Models.VM;
 
 namespace SiemensECommerce.UI.Controllers
 {
-
-    public class AdminUserController : AdminBaseController
+    public class WebUserController : Controller
     {
-
-        public IActionResult Index()
+        public IActionResult Index() 
         {
             WebUserManager webUserManager = new WebUserManager();
 
-            var webusers = webUserManager.GetWebUsers();
-            return View(webusers);
+            var webUsers = webUserManager.GetWebUsers();
+            return View(webUsers);
         }
 
-        public IActionResult Add()
-        {
-            return View();
-        }
-        
-
+       
         public IActionResult Delete(int id)
         {
-            SupplierManager supplierManager = new SupplierManager();
-            supplierManager.Delete(id);
-
+            WebUserManager webUserManager = new WebUserManager();
+            webUserManager.Delete(id);
             return RedirectToAction("Index");
         }
+
+       
+           
+        
+       
+      
+     
     }
 }

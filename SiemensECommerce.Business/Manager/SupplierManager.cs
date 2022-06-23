@@ -25,5 +25,16 @@ namespace SiemensECommerce.Business.Manager
             var suppliers = db.Suppliers.Where(x => x.IsDeleted == false).ToList();
             return suppliers;
         }
+       public void Delete(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Supplier supplier = db.Suppliers.FirstOrDefault(q => q.Id == id);
+
+            if (supplier != null)
+            supplier.IsDeleted = true;
+            db.SaveChanges();
+
+            
+        }
     }
 }

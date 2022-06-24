@@ -7,13 +7,13 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class WebUserController : Controller
     {
-        public IActionResult Index() 
-        {
-            WebUserManager webUserManager = new WebUserManager();
+        //public IActionResult Index() 
+        //{
+        //    WebUserManager webUserManager = new WebUserManager();
 
-            var webUsers = webUserManager.GetWebUsers();
-            return View(webUsers);
-        }
+        //    //var webUsers = webUserManager.GetWebUsers(); (hatalı getwebusers)
+        //    return View(webUsers);
+        //}
 
        
         public IActionResult Delete(int id)
@@ -29,7 +29,7 @@ namespace SiemensECommerce.UI.Controllers
       
 
             WebUserManager webUserManager = new WebUserManager();
-            WebUser webUser = webUserManager.GetCategoryById(id);
+            WebUser webUser = webUserManager.GetUserById(id);
 
             return View(webUser);
         }
@@ -43,10 +43,46 @@ namespace SiemensECommerce.UI.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+
+
+
+
+
+
         public IActionResult Add()
         {
             return View();
         }
-    
+
+
+        [HttpPost]
+      public IActionResult Add(WebUserVM model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                
+
+
+                WebUser webUser = new WebUser();
+                webUser.Name = model.Name;
+                webUser.SurName=model.SurName;
+                webUser.Email = model.Email;    
+                webUser.PhoneNumber = model.PhoneNumber;
+
+
+               WebUserManager.Add(webUser);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
     }
 }

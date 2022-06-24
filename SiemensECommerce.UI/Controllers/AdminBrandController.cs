@@ -40,7 +40,7 @@ namespace SiemensECommerce.UI.Controllers
                 brand.Country = model.Country;
                 brand.Address = model.Address;
                 brand.LogoImage = ImagePath;
-                brand.Edit = model.Edit;
+               
 
                 BrandManager.Add(brand);
 
@@ -51,5 +51,13 @@ namespace SiemensECommerce.UI.Controllers
                 return View();
             }
         }
+        public IActionResult Delete(int id)
+        {
+            BrandManager brandManager = new BrandManager();
+            brandManager.Delete(id);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

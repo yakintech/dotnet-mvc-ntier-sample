@@ -32,5 +32,18 @@ namespace SiemensECommerce.Business.Manager
 
             return brandaa;
         }
+
+        public void Delete(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Brand brand = db.Brands.FirstOrDefault(q => q.Id == id);
+                {
+                if (brand != null)
+                {
+                    brand.IsDeleted = true;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

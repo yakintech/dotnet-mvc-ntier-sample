@@ -13,6 +13,6 @@ namespace SiemensECommerce.Data.ORM
         public string Country { get; set; }
         public string Address { get; set; }
         public string LogoImage { get; set; }
-        public string Edit { get; set; }
+      
     }
 }

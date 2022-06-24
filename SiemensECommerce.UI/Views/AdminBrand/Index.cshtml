@@ -12,7 +12,7 @@
                 <th>Country</th>
                 <th>Address</th>
                 <th>Logo Image</th>
-                <th>Edit</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,9 @@
                 <td>@item.Country</td>
                 <td>@item.Address</td>
                 <td>@item.LogoImage</td>
-                <td>@item.Edit</td>
+                <td>
+                    <button><a href="/AdminBrand/Delete/@item.Id">Delete</a></button>
+                </td>
             </tr>
         }
         </tbody>

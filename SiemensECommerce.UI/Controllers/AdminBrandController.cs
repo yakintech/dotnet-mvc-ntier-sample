@@ -9,8 +9,12 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            BrandManager manager = new BrandManager();
+            var brands = manager.GetBrands();
+            return View(brands);
         }
+
+       
         public IActionResult Add()
         {
             return View();

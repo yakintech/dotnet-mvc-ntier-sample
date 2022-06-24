@@ -1,4 +1,5 @@
-﻿using SiemensECommerce.Data.ORM;
+﻿using System.Collections.Generic;
+using SiemensECommerce.Data.ORM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,13 @@ namespace SiemensECommerce.Business.Manager
             updateWebUsers.Name = webUser.Name;
 
             db.SaveChanges();
+        }
+
+        public List<WebUser> GetWebUsers()
+        {
+                        SiemensECommerceContext db = new SiemensECommerceContext();
+                        return db.WebUsers.ToList();
+
         }
     }
 }

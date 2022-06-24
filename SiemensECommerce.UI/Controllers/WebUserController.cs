@@ -26,10 +26,10 @@ namespace SiemensECommerce.UI.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            //Önce update edilecek category bulunur ve ekrandaki inputlar doldurulur
+      
 
             WebUserManager webUserManager = new WebUserManager();
-            WebUser webUser = webUserManager.GetCategoryById(id);
+            WebUser webUser = webUserManager.GetUserById(id);
 
             return View(webUser);
         }
@@ -49,12 +49,13 @@ namespace SiemensECommerce.UI.Controllers
 
 
 
+
+
         public IActionResult Add()
         {
-            WebUserManager webUserManager = new WebUserManager();
-            List<WebUser> webUsers = webUserManager.GetWebUsers();
-            return View(webUsers);
+            return View();
         }
+
 
         [HttpPost]
       public IActionResult Add(WebUserVM model)
@@ -81,6 +82,7 @@ namespace SiemensECommerce.UI.Controllers
                 return View();
             }
         }
+
 
     }
 }

@@ -19,6 +19,18 @@ namespace SiemensECommerce.Business.Manager
             db.Brands.Add(brand);
             db.SaveChanges();
         }
+        public List<Brand> GetBrands()
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var brand =db.Brands.Where(x => x.IsDeleted==false).ToList();  
+            return brand;
+        }
+        public Brand GetSupplierById(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Brand brandaa = db.Brands.FirstOrDefault(c => c.Id == id);
 
+            return brandaa;
+        }
     }
 }

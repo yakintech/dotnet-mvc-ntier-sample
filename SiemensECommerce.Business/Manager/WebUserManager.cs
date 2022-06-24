@@ -9,13 +9,6 @@ namespace SiemensECommerce.Business.Manager
 {
     public class WebUserManager
     {
-        public List<WebUser> GetWebUsers()
-        {
-            SiemensECommerceContext db = new SiemensECommerceContext();
-            var webuser = db.WebUsers.Where(q => q.IsDeleted == false).ToList();
-            return webuser;
-        }
-
         public WebUser GetCategoryById(int id)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();

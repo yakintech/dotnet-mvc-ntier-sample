@@ -2,38 +2,32 @@
     Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
 }
 
-@model List<WebUser>
+@model SiemensECommerce.UI.Models.VM.WebUserVM
 
     <form action="/WebUser/Add" method = "post" enctype = "multipart/form-data">
 
-        
-    <div class="form-group">
+          @Html.ValidationSummary()
 
-        <select class="form-control" name="WebUserId">
-            @foreach (var item in Model)
-            {
-                <option name="WebUserId" value="@item.Id">@item.Name</option>
-            }
-        </select>
-
-    </div>
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" name="Name" class="form-control" />
+        @Html.TextBoxFor(q => q.Name, new {@class = "form-control"})
     </div>
-
 
     <div class="form-group">
-        <label>SurName:</label>
-        <input type="text" name="SurName" class="form-control" />
+        <label>Password:</label>
+        @Html.PasswordFor(q => q.Password, new {@class = "form-control"})
     </div>
 
-
-    <div class="form-group">
-        <label>EMail:</label>
-        <input type="text" name="EMail" class="form-control" />
+        <div class="form-group">
+        <label>Password:</label>
+        @Html.PasswordFor(q => q.ConfirmPassword, new {@class = "form-control"})
     </div>
 
+    <div>
+        <button>Add</button>
+    </div>
+
+     
     <div>
         <button class="btn btn-primary">Add</button>
     </div>

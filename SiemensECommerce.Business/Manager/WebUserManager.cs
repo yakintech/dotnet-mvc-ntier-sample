@@ -51,10 +51,10 @@ namespace SiemensECommerce.Business.Manager
             SiemensECommerceContext db = new SiemensECommerceContext();
 
             //Önce güncellenecek kategori db den bulunur.
-            var updateCategory = db.WebUsers.FirstOrDefault(c => c.Id == webUser.Id);
+            var updateWebUsers = db.WebUsers.FirstOrDefault(c => c.Id == webUser.Id);
 
             //sonra bu kateori dışarıdan gelen değer ile güncellenir
-            updateCategory.Name = webUser.Name;
+            updateWebUsers.Name = webUser.Name;
 
             db.SaveChanges();
         }

@@ -23,11 +23,30 @@ namespace SiemensECommerce.UI.Controllers
             return RedirectToAction("Index");
         }
 
-       
-           
-        
-       
-      
-     
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            //Önce update edilecek category bulunur ve ekrandaki inputlar doldurulur
+
+            WebUserManager webUserManager = new WebUserManager();
+            WebUser webUser = webUserManager.GetCategoryById(id);
+
+            return View(webUser);
+        }
+
+        [HttpPost]
+        public IActionResult Update(WebUser model)
+        {
+            WebUserManager webUserManager = new WebUserManager();
+
+            webUserManager.Update(model);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
     }
 }

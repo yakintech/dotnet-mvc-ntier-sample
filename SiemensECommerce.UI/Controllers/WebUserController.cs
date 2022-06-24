@@ -23,11 +23,58 @@ namespace SiemensECommerce.UI.Controllers
             return RedirectToAction("Index");
         }
 
-       
-           
-        
-       
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
       
-     
+
+            WebUserManager webUserManager = new WebUserManager();
+            WebUser webUser = webUserManager.GetCategoryById(id);
+
+            return View(webUser);
+        }
+
+        [HttpPost]
+        public IActionResult Update(WebUser model)
+        {
+            WebUserManager webUserManager = new WebUserManager();
+
+            webUserManager.Update(model);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Add()
+        {
+            WebUserManager webUserManager = new WebUserManager();
+            List<WebUser> webUsers = webUserManager.GetWebUsers();
+            return View(webUsers);
+        }
+
+        [HttpPost]
+      public IActionResult Add(WebUserVM model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                
+
+
+                WebUser webUser = new WebUser();
+                webUser.Name = model.Name;
+                webUser.SurName=model.SurName;
+                webUser.Email = model.Email;    
+                webUser.PhoneNumber = model.PhoneNumber;
+
+
+               WebUserManager.Add(webUser);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

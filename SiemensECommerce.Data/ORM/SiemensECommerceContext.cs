@@ -25,6 +25,7 @@ namespace SiemensECommerce.Data.ORM
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<WebUser> WebUsers { get; set; }
+        public DbSet<Brand> Brands { get; set; }  
 
    
 

@@ -4,6 +4,12 @@
 
 @model List<WebUser>
 
+   <form asp-action="Index" method="get">
+    <p>
+        Search: <input type="text"/>
+        <input type="submit" value="Search a WebUser" />
+    </p>
+</form>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
@@ -11,7 +17,11 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                
+                <th>SurName</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>PhoneNumber</th>
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -21,7 +31,11 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Name</td>
-                    
+                    <td>@item.SurName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                    <td>@item.PhoneNumber</td>
+                    <td><a href="/WebUser/Update/@item.Id">Update</a></td>
                     <td><a href="/WebUser/Delete/@item.Id">Delete</a></td>
                 </tr>
             }

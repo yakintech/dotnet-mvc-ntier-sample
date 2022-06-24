@@ -23,7 +23,6 @@ namespace SiemensECommerce.UI.Controllers
             return RedirectToAction("Index");
         }
 
-<<<<<<< HEAD
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -49,7 +48,7 @@ namespace SiemensECommerce.UI.Controllers
 
 
 
-=======
+
         public IActionResult Add()
         {
             WebUserManager webUserManager = new WebUserManager();
@@ -82,6 +81,6 @@ namespace SiemensECommerce.UI.Controllers
                 return View();
             }
         }
->>>>>>> 1a651746e0f1d64a8e47a76bba34459ca30272c5
+
     }
 }

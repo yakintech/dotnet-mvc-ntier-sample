@@ -24,7 +24,7 @@ namespace SiemensECommerce.Business.Manager
             return webuser;
         }
 
-        public void Add(WebUser webUser)
+        public static void Add(WebUser webUser)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
             webUser.AddDate = DateTime.Now;

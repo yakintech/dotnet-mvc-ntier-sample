@@ -15,7 +15,6 @@ namespace SiemensECommerce.UI.Models.VM
         [MinLength(6, ErrorMessage = "Password minimum 6 karakter olmalıdır")]
         public string Password { get; set; }
 
-
         [Compare("Password", ErrorMessage = "Password ve Confirm Password alanları aynı olmak zorunda")]
         [Required(ErrorMessage = "Confirm Password alanı boş bırakılamaz")]
         public string ConfirmPassword { get; set; }

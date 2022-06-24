@@ -30,7 +30,6 @@ namespace SiemensECommerce.Business.Manager
             webUser.AddDate = DateTime.Now;
             webUser.IsDeleted = false;
 
-
             db.WebUsers.Add(webUser);
             db.SaveChanges();
         }
@@ -55,15 +54,12 @@ namespace SiemensECommerce.Business.Manager
 
             //sonra bu kateori dışarıdan gelen değer ile güncellenir
             updateWebUsers.Name = webUser.Name;
+            updateWebUsers.Email = webUser.Email;
+            updateWebUsers.SurName = webUser.SurName;
+            updateWebUsers.Password = webUser.Password;
+            updateWebUsers.PhoneNumber = webUser.PhoneNumber;
 
             db.SaveChanges();
-        }
-
-        public List<WebUser> GetWebUsers()
-        {
-                        SiemensECommerceContext db = new SiemensECommerceContext();
-                        return db.WebUsers.ToList();
-
         }
     }
 }

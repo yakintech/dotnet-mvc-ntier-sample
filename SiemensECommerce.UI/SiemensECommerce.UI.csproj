@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SiemensECommerce.Business\SiemensECommerce.Business.csproj" />
-    <ProjectReference Include="..\SiemensECommerce.Data\SiemensECommerce.Data.csproj" />
+    <Compile Remove="Views\NewFolder\**" />
+    <Content Remove="Views\NewFolder\**" />
+    <EmbeddedResource Remove="Views\NewFolder\**" />
+    <None Remove="Views\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\NewFolder\" />
+    <ProjectReference Include="..\SiemensECommerce.Business\SiemensECommerce.Business.csproj" />
+    <ProjectReference Include="..\SiemensECommerce.Data\SiemensECommerce.Data.csproj" />
   </ItemGroup>
 
 </Project>

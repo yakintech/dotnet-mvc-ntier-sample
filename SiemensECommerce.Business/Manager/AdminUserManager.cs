@@ -20,10 +20,20 @@ namespace SiemensECommerce.Business.Manager
 
         }
 
+        public List<AdminUser> GetAdminUsers()
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var adminusers = db.AdminUsers.Where(x => x.IsDeleted == false).ToList();
+            return adminusers;
+        }
+
 
         public static void Add(AdminUser adminUser)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
+            adminUser.IsDeleted = false;
+            adminUser.AddDate = DateTime.Now;
+
             db.AdminUsers.Add(adminUser);
             db.SaveChanges();
         }

@@ -11,15 +11,34 @@ namespace SiemensECommerce.UI.Controllers
 
         public IActionResult Index()
         {
-            WebUserManager webUserManager = new WebUserManager();
+            AdminUserManager adminUserManager = new AdminUserManager();
 
-            var webusers = webUserManager.GetWebUsers();
-            return View(webusers);
+            var adminusers = adminUserManager.GetAdminUsers();
+            return View(adminusers);
         }
 
         public IActionResult Add()
         {
+
             return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Add(AdminUserVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                AdminUser adminUser = new AdminUser();
+                adminUser.EMail = model.EMail;
+                adminUser.Password = model.Password;
+
+                AdminUserManager.Add(adminUser);
+
+                return RedirectToAction("Index");
+            }
+
+            else
+                return View();
         }
         
 

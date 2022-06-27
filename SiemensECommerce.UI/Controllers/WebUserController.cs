@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using SiemensECommerce.Business.Manager;
 using SiemensECommerce.Data.ORM;
 using SiemensECommerce.UI.Models.VM;
@@ -47,7 +48,7 @@ namespace SiemensECommerce.UI.Controllers
         }
 
         [HttpPost]
-      public IActionResult Add(WebUserVM model)
+        public IActionResult Add(WebUserVM model)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +56,7 @@ namespace SiemensECommerce.UI.Controllers
                 webUser.Name = model.Name;
                 webUser.SurName = model.SurName;
                 webUser.Password = model.Password;
-                webUser.Email = model.Email;    
+                webUser.Email = model.Email;
                 webUser.PhoneNumber = model.PhoneNumber;
 
                 WebUserManager.Add(webUser);
@@ -66,6 +67,15 @@ namespace SiemensECommerce.UI.Controllers
             {
                 return View();
             }
+        }
+
+
+        public IActionResult Search(string query)
+        {
+            WebUserManager webUserManager = new WebUserManager();
+            var webUsers = webUserManager.GetWebUsers().Where(q => q.Name.ToLower().Contains(query.ToLower()));
+            return View("Index", webUsers.ToList());
+
         }
 
 

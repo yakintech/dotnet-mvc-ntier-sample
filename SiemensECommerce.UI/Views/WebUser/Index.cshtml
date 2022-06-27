@@ -1,14 +1,16 @@
 ﻿@{
+
+
+
     Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
 }
 
 @model List<WebUser>
 
-   <form asp-action="Index" method="get">
-    <p>
-        Search: <input type="text"/>
-        <input type="submit" value="Search a WebUser" />
-    </p>
+<form action="/webuser/search" method="get">
+    <label for="query">Search in Web Users</label>
+    <input type="text" name="query" id="query" />
+    <input type="submit" value="Search in Web Users" />
 </form>
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -38,6 +40,9 @@
                     <td><a href="/WebUser/Update/@item.Id">Update</a></td>
                     <td><a href="/WebUser/Delete/@item.Id">Delete</a></td>
                 </tr>
+
+
+
             }
 
         </tbody>

@@ -40,7 +40,37 @@ namespace SiemensECommerce.UI.Controllers
             else
                 return View();
         }
-        
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            AdminUserManager adminUserManager = new AdminUserManager();
+            AdminUser adminUser = adminUserManager.GetUserById(id);
+            AdminUserVM model = new AdminUserVM();
+            model.EMail = adminUser.EMail;
+            model.Password = adminUser.Password;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Update(AdminUserVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                AdminUserManager adminUserManager = new AdminUserManager();
+
+                AdminUser adminUser = new AdminUser();
+                adminUser.EMail = model.EMail;
+                adminUser.Password = model.Password;
+
+                adminUserManager.Update(adminUser);
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
 
         public IActionResult Delete(int id)
         {

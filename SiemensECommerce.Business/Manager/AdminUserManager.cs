@@ -19,7 +19,13 @@ namespace SiemensECommerce.Business.Manager
 
 
         }
+        public AdminUser GetUserById(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            AdminUser adminUser = db.AdminUsers.FirstOrDefault(c => c.Id == id);
 
+            return adminUser;
+        }
         public List<AdminUser> GetAdminUsers()
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
@@ -35,6 +41,17 @@ namespace SiemensECommerce.Business.Manager
             adminUser.AddDate = DateTime.Now;
 
             db.AdminUsers.Add(adminUser);
+            db.SaveChanges();
+        }
+        public void Update(AdminUser adminUser)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+
+            var updateAdminUser = db.AdminUsers.FirstOrDefault(c => c.Id == adminUser.Id);
+
+            updateAdminUser.EMail = adminUser.EMail;
+            updateAdminUser.Password = adminUser.Password;
+        
             db.SaveChanges();
         }
 

@@ -11,7 +11,7 @@ namespace SiemensECommerce.UI.Models.VM
         [Required(ErrorMessage = "Address alanı boş bırakılamaz")]
         public string Address { get; set; }
         public IFormFile logoImage { get; set; }
-        [Required(ErrorMessage = "Edit alanı boş bırakılamaz")]
-        public string Edit { get; set; }
+     
+  
     }
 }

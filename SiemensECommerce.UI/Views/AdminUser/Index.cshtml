@@ -2,16 +2,15 @@
     Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
 }
 
-@model List<WebUser>
+@model List<AdminUser>
 
 <div class="table-responsive">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                
+                <th>EMail</th>             
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -20,15 +19,11 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    
-                    <td><a href="/WebUser/Delete/@item.Id">Delete</a></td>
+                    <td>@item.EMail</td>                   
+                    <td><a href="/AdminUser/Update/@item.Id">Update</a></td>
+                    <td><a href="/AdminUser/Delete/@item.Id">Delete</a></td>                
                 </tr>
             }
-
         </tbody>
-
-
     </table>
-
 </div>

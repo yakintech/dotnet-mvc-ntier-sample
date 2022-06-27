@@ -13,7 +13,7 @@ namespace SiemensECommerce.Data.ORM
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS; Database=SiemensECommerce; trusted_connection=true");
+            optionsBuilder.UseSqlServer(@"Server=37.230.108.246;Database=cagatay8_metroSMSdb;UID=user_metroSMSdb;pwd=3fK@48ek");
 
         }
 

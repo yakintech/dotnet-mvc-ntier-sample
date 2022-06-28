@@ -19,8 +19,21 @@ namespace SiemensECommerce.Data.ORM
 
         public int CategoryId { get; set; }
 
+        public int SupplierId { get; set; }
+
+        public int BrandId { get; set; }
+
 
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
+
+
+        [ForeignKey("SupplierId")]
+        public Supplier Supplier { get; set; }
+
+
+        [ForeignKey("BrandId")]
+        public Brand Brand { get; set; }
+
     }
 }

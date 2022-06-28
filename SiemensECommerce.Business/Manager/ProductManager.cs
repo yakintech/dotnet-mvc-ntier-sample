@@ -40,7 +40,8 @@ namespace SiemensECommerce.Business.Manager
             updateproduct.Description = product.Description;
             updateproduct.MainImage=product.MainImage;
             updateproduct.UnitPrice = product.UnitPrice;
-          
+
+            db.SaveChanges();
         }
 
         public void Delete (int id)

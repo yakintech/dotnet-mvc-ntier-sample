@@ -6,7 +6,7 @@ using SiemensECommerce.UI.Models.VM;
 
 namespace SiemensECommerce.UI.Controllers
 {
-    public class WebUserController : Controller
+    public class WebUserController : AdminBaseController
     {
         public IActionResult Index()
         {

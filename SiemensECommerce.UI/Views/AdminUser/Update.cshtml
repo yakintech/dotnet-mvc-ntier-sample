@@ -15,6 +15,10 @@
         <label>Password:</label>
         @Html.TextBoxFor(q => q.Password, new{ @class="form-control" })
     </div>
+      <div class="form-group">
+        <label>ConfirmPassword:</label>
+        @Html.TextBoxFor(q => q.ConfirmPassword, new{ @class="form-control" })
+    </div>
    
     <div>
         <button class="btn btn-primary" type="submit">Update</button>

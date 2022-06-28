@@ -25,8 +25,6 @@ namespace SiemensECommerce.UI.Controllers
             return RedirectToAction("Index");
         }
 
-
-
         public IActionResult Add()
         {
             return View();

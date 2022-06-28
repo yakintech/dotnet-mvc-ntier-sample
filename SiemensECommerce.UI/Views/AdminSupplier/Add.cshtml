@@ -5,7 +5,9 @@
 @model Supplier
 
 <form action='/AdminSupplier/Add' method='post'>
+
      @Html.ValidationSummary()
+
     <div class="form-group">
         <label> Company Name: </label>
         @Html.TextBoxFor(q => q.CompanyName, new{ @class="form-control" })

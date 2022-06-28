@@ -70,12 +70,10 @@ namespace SiemensECommerce.UI.Controllers
             return View();
         }
 
-
-
         public IActionResult Delete(int id)
         {
-            SupplierManager supplierManager = new SupplierManager();
-            supplierManager.Delete(id);
+            AdminUserManager adminUserManager = new AdminUserManager();
+            adminUserManager.Delete(id);
 
             return RedirectToAction("Index");
         }

@@ -5,7 +5,7 @@ using SiemensECommerce.UI.Models.VM;
 
 namespace SiemensECommerce.UI.Controllers
 {
-    public class AdminSupplierController : Controller
+    public class AdminSupplierController : AdminBaseController
     {
         public IActionResult Index()
         {

@@ -1,0 +1,3 @@
+[submodule "BasicMailSender"]
+	path = BasicMailSender
+	url = https://github.com/SeanTolstoyevski/BasicMailSender

@@ -54,6 +54,17 @@ namespace SiemensECommerce.Business.Manager
         
             db.SaveChanges();
         }
+        public void Delete(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            AdminUser adminUser = db.AdminUsers.FirstOrDefault(x => x.Id == id);          
+
+            if (adminUser != null)
+                adminUser.IsDeleted = true;
+
+            db.SaveChanges();
+        }
+
 
     }
 }

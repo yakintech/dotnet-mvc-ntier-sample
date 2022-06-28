@@ -19,5 +19,12 @@ namespace SiemensECommerce.Business.Manager
             db.Products.Add(product);
             db.SaveChanges();
         }
+        public List<Product> GetProducts()
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var products = db.Products.Where(x => x.IsDeleted == false).ToList();
+
+            return products;
+        }
     }
 }

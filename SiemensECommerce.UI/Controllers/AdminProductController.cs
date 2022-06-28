@@ -8,11 +8,24 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class AdminProductController : AdminBaseController
     {
+        public IActionResult Index()
+        {
+            ProductManager productManager = new ProductManager();
+            var products = productManager.GetProducts();
+            return View(products);
+        }
         public IActionResult Add()
         {
             CategoryManager categoryManager = new CategoryManager();
-            List<Category> categories = categoryManager.GetCategories();
-            return View(categories);
+            SupplierManager supplierManager = new SupplierManager();
+            BrandManager brandManager = new BrandManager();
+            ProductListVM model = new ProductListVM();
+
+            model.categories = categoryManager.GetCategories();
+            model.suppliers = supplierManager.GetSuppliers();
+            model.brands = brandManager.GetBrands();
+
+            return View(model);
         }
 
         [HttpPost]
@@ -29,15 +42,15 @@ namespace SiemensECommerce.UI.Controllers
                     await model.productImage.CopyToAsync(fs);
                 }
 
-
                 Product product = new Product();
                 product.Name = model.Name;
                 product.Description = model.Description;
                 product.UnitPrice = model.UnitPrice;
                 product.CategoryId = model.CategoryId;
+                product.SupplierId = model.SupplierId;
+                product.BrandId = model.BrandId;
                 product.MainImage = ImagePath;
                 
-
                 ProductManager.Add(product);
 
                 return RedirectToAction("Index");

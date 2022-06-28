@@ -11,7 +11,6 @@ namespace SiemensECommerce.UI.Controllers
         public IActionResult Index()
         {
             WebUserManager webUserManager = new WebUserManager();
-
             var webUsers = webUserManager.GetWebUsers();
             return View(webUsers);
         }

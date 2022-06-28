@@ -4,7 +4,6 @@ using SiemensECommerce.Data.ORM;
 
 namespace SiemensECommerce.UI.Controllers
 {
-
     public class AdminCategoryController : AdminBaseController
     {
         public IActionResult Index()

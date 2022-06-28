@@ -7,9 +7,9 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            var allCategories = new CategoryManager().GetCategories();
+            var allProducts = new ProductManager().GetProducts();
 
-            return View(allCategories);
+            return View(allProducts);
         }
     }
 }

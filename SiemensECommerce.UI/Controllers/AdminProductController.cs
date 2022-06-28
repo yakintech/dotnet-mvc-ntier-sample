@@ -59,6 +59,31 @@ namespace SiemensECommerce.UI.Controllers
             {
                 return View();
             }
+
+            
+        }
+        public IActionResult Update(int id)
+        {
+            ProductManager productManager = new ProductManager();
+            Product product = productManager.GetProductById(id);
+
+            return View(product);
+        }
+
+        public IActionResult Update(Product model)
+        {
+            ProductManager productManager = new ProductManager();
+
+            productManager.Update(model);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            ProductManager productManager = new ProductManager();
+            productManager.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

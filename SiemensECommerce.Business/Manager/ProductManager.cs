@@ -26,5 +26,31 @@ namespace SiemensECommerce.Business.Manager
 
             return products;
         }
+        public Product GetProductById(int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Product product = db.Products.FirstOrDefault(x => x.Id == id);
+            return product;
+        }
+        public void Update(Product product)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            var updateproduct = db.Products.FirstOrDefault(q => q.Id == product.Id);
+            updateproduct.Name = product.Name;
+            updateproduct.Description = product.Description;
+            updateproduct.MainImage=product.MainImage;
+            updateproduct.UnitPrice = product.UnitPrice;
+          
+        }
+
+        public void Delete (int id)
+        {
+            SiemensECommerceContext db = new SiemensECommerceContext();
+            Product product= db.Products.FirstOrDefault(x => x.Id == id);
+
+            if (product != null)
+                product.IsDeleted = true;
+            db.SaveChanges();
+        }
     }
 }

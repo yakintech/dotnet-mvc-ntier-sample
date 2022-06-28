@@ -1,4 +1,5 @@
-﻿using SiemensECommerce.Data.ORM;
+﻿using Microsoft.EntityFrameworkCore;
+using SiemensECommerce.Data.ORM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace SiemensECommerce.Business.Manager
         public List<Product> GetProducts()
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
-            var products = db.Products.Where(x => x.IsDeleted == false).ToList();
+            var products = db.Products.Include(x => x.Category).Where(q => q.IsDeleted == false).ToList();
 
             return products;
         }

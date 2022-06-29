@@ -20,7 +20,7 @@ namespace SiemensECommerce.UI.Controllers
            ProductListVM products = new ProductListVM();
             products.categories = unitOfWork.CategoryRepository.GetAll();
             products.suppliers = unitOfWork.SupplierRepository.GetAll();
-            products.brands = brandManager.GetBrands();
+            products.brands = unitOfWork.BrandRepository.GetAll();
 
             return View(products);
         }

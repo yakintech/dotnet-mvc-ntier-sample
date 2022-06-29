@@ -3,7 +3,7 @@ using SiemensECommerce.Business.Manager;
 
 namespace SiemensECommerce.UI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SiteBaseController
     {
         public IActionResult Index()
         {

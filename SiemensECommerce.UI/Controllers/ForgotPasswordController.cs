@@ -2,7 +2,7 @@
 using SiemensECommerce.Business.Manager;
 using SiemensECommerce.Data.ORM;
 using System.Linq;
-using BMS;
+//using BMS;
 
 namespace SiemensECommerce.UI.Controllers
 {

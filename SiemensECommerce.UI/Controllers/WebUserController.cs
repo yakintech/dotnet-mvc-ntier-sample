@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SiemensECommerce.Business.Manager;
+using SiemensECommerce.Business.Repository;
 using SiemensECommerce.Data.ORM;
 using SiemensECommerce.UI.Models.VM;
 
@@ -58,7 +59,9 @@ namespace SiemensECommerce.UI.Controllers
                 webUser.Email = model.Email;
                 webUser.PhoneNumber = model.PhoneNumber;
 
-                WebUserManager.Add(webUser);
+                GenericRepository<WebUser> genericRepository = new GenericRepository<WebUser>();
+                genericRepository.Add(webUser);
+                //WebUserManager.Add(webUser);
 
                 return RedirectToAction("Index");
             }

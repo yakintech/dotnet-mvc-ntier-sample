@@ -20,7 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SiemensECommerce.Business\SiemensECommerce.Business.csproj" />
     <ProjectReference Include="..\SiemensECommerce.Data\SiemensECommerce.Data.csproj" />
-    <ProjectReference Include="..\BasicMailSender\BasicMailSender.csproj" />
   </ItemGroup>
 
 </Project>

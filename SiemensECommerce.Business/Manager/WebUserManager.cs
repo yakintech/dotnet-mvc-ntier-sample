@@ -13,7 +13,7 @@ namespace SiemensECommerce.Business.Manager
         public WebUser GetUserById(int id)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();
-            WebUser webuser = db.WebUsers.FirstOrDefault(c => c.Id == id);
+            WebUser webuser = db.WebUsers.Where(q => q.IsDeleted == false).FirstOrDefault(c => c.Id == id);
 
             return webuser;
         }

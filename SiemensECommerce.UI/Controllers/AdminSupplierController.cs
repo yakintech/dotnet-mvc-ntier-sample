@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SiemensECommerce.Business.Manager;
+using SiemensECommerce.Business.Repository;
 using SiemensECommerce.Data.ORM;
 using SiemensECommerce.UI.Models.VM;
 
@@ -30,7 +31,9 @@ namespace SiemensECommerce.UI.Controllers
                 supplier.ContactTitle = supplierVM.ContactTitle;
                 supplier.Country = supplierVM.Country;
 
-                SupplierManager.Add(supplier);
+                GenericRepository<Supplier> genericRepository = new GenericRepository<Supplier>();
+                genericRepository.Add(supplier);
+
 
                 return RedirectToAction("Index");
             }

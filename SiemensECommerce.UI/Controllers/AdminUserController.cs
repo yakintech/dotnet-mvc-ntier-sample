@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SiemensECommerce.Business.Manager;
+using SiemensECommerce.Business.Repository;
 using SiemensECommerce.Data.ORM;
 using SiemensECommerce.UI.Models.VM;
 
@@ -22,11 +23,14 @@ namespace SiemensECommerce.UI.Controllers
 
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult Add(AdminUserVM model)
         {
-            if (ModelState.IsValid)
+            var work = new UnitOfWork();
+            var adminUserResult = work.AdminUserRepository.GetAll().FirstOrDefault(q => q.EMail == model.EMail);
+
+            if (ModelState.IsValid && adminUserResult == null)
             {
                 AdminUser adminUser = new AdminUser();
                 adminUser.EMail = model.EMail;
@@ -40,7 +44,7 @@ namespace SiemensECommerce.UI.Controllers
             else
                 return View();
         }
-        [HttpGet]
+            [HttpGet]
         public IActionResult Update(int id)
         {
             AdminUserManager adminUserManager = new AdminUserManager();
@@ -77,5 +81,7 @@ namespace SiemensECommerce.UI.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }

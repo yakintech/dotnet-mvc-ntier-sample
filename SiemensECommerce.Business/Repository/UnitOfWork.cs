@@ -14,6 +14,7 @@ namespace SiemensECommerce.Business.Repository
         GenericRepository<Supplier> supplierRepository;
         GenericRepository<Category> categoryRepository;
         GenericRepository<Product> productRepository;
+        GenericRepository<AdminUser> adminuserRepository;
 
 
 
@@ -51,6 +52,18 @@ namespace SiemensECommerce.Business.Repository
                     this.categoryRepository = new GenericRepository<Category>();
                 }
                 return categoryRepository;
+            }
+
+        }
+        public GenericRepository<AdminUser> AdminUserRepository
+        {
+            get
+            {
+                if (this.adminuserRepository == null)
+                {
+                    this.adminuserRepository = new GenericRepository<AdminUser>();
+                }
+                return adminuserRepository;
             }
 
         }

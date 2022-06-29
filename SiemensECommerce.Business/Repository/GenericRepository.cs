@@ -3,6 +3,7 @@ using SiemensECommerce.Data.ORM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,11 @@ namespace SiemensECommerce.Business.Repository
             this.dbSet = context.Set<T>();
         }
 
-
+        public T GetEntityById(int id)
+        {
+            T entity = dbSet.FirstOrDefault(q => q.IsDeleted == false && q.Id == id);
+            return entity;
+        }
 
         public void Add(T entity)
         {
@@ -28,7 +33,7 @@ namespace SiemensECommerce.Business.Repository
 
             dbSet.Add(entity);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
         }
 
@@ -39,7 +44,7 @@ namespace SiemensECommerce.Business.Repository
             if (entity != null)
             {
                 entity.IsDeleted = true;
-                context.SaveChanges();
+                //context.SaveChanges();
             }
 
         }
@@ -50,6 +55,24 @@ namespace SiemensECommerce.Business.Repository
             List<T> entities = dbSet.Where(q => q.IsDeleted == false).ToList();
 
             return entities;
+        }
+
+
+        public List<T> GetAllWithQuery(Expression<Func<T, bool>> filter)
+        {
+          return  dbSet.Where(filter).ToList();
+
+        }
+
+
+        public int GetEntityCountWithQuery(Expression<Func<T, bool>> filter)
+        {
+            return dbSet.Where(filter).Count();
+        }
+
+        public T GetEntityWithQuery(Expression<Func<T, bool>> filter)
+        {
+            return dbSet.Where(q => q.IsDeleted == false).FirstOrDefault(filter);
         }
 
 

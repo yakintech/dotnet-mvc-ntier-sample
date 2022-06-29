@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using SiemensECommerce.Business.Manager;
+using SiemensECommerce.Business.Repository;
+using SiemensECommerce.Data.ORM;
 using System.Security.Claims;
 
 namespace SiemensECommerce.UI.Controllers
@@ -17,9 +19,12 @@ namespace SiemensECommerce.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string email, string password)
         {
-            bool adminControl = AdminUserManager.LoginControl(email, password);
+            //bool adminControl = AdminUserManager.LoginControl(email, password);
 
-            if (adminControl)
+            GenericRepository<AdminUser> genericRepository = new GenericRepository<AdminUser>();
+            AdminUser adminuser = genericRepository.GetEntityWithQuery(q => q.EMail == email && q.Password == password);
+
+            if (adminuser != null)
             {
 
                 var claims = new List<Claim>

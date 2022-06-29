@@ -8,11 +8,14 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class AdminSupplierController : AdminBaseController
     {
+
+
+
         public IActionResult Index()
         {
-            SupplierManager supplierManager = new SupplierManager();
+            //SupplierManager supplierManager = new SupplierManager();
 
-            var suppliers = supplierManager.GetSuppliers();
+            var suppliers = unitOfWork.SupplierRepository.GetAll();
             return View(suppliers);
         }
 
@@ -31,8 +34,11 @@ namespace SiemensECommerce.UI.Controllers
                 supplier.ContactTitle = supplierVM.ContactTitle;
                 supplier.Country = supplierVM.Country;
 
-                GenericRepository<Supplier> genericRepository = new GenericRepository<Supplier>();
-                genericRepository.Add(supplier);
+                unitOfWork.SupplierRepository.Add(supplier);
+                unitOfWork.Save();
+
+
+                //List<Supplier> suppliers = genericRepository.GetAllWithQuery(q => q.CompanyName.Contains('a'));
 
 
                 return RedirectToAction("Index");
@@ -43,8 +49,11 @@ namespace SiemensECommerce.UI.Controllers
         
         public IActionResult Delete(int id)
         {
-            SupplierManager supplierManager=new SupplierManager();
-            supplierManager.Delete(id);
+            //SupplierManager supplierManager=new SupplierManager();
+            //supplierManager.Delete(id);
+
+            unitOfWork.SupplierRepository.Delete(id);
+            unitOfWork.Save();
 
             return RedirectToAction("Index");
         }
@@ -52,8 +61,8 @@ namespace SiemensECommerce.UI.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            SupplierManager supplierManager = new SupplierManager();
-            Supplier supplier = supplierManager.GetSupplierById(id);
+            //SupplierManager supplierManager = new SupplierManager();
+            Supplier supplier = unitOfWork.SupplierRepository.GetEntityById(id);
             return View(supplier);
         }
 

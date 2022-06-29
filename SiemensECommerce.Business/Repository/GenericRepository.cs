@@ -32,6 +32,26 @@ namespace SiemensECommerce.Business.Repository
 
         }
 
+        public void Delete(int id)
+        {
+            T entity = dbSet.FirstOrDefault(q => q.Id == id);
+
+            if (entity != null)
+            {
+                entity.IsDeleted = true;
+                context.SaveChanges();
+            }
+
+        }
+
+        public List<T> GetAll()
+        {
+            //db.Categories
+            List<T> entities = dbSet.Where(q => q.IsDeleted == false).ToList();
+
+            return entities;
+        }
+
 
     }
 }

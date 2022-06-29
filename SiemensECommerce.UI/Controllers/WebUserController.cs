@@ -61,6 +61,7 @@ namespace SiemensECommerce.UI.Controllers
 
                 GenericRepository<WebUser> genericRepository = new GenericRepository<WebUser>();
                 genericRepository.Add(webUser);
+
                 //WebUserManager.Add(webUser);
 
                 return RedirectToAction("Index");

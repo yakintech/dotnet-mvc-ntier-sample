@@ -24,15 +24,15 @@ namespace SiemensECommerce.Business.Manager
             return webusers;
         }
 
-        public static void Add(WebUser webUser)
-        {
-            SiemensECommerceContext db = new SiemensECommerceContext();
-            webUser.AddDate = DateTime.Now;
-            webUser.IsDeleted = false;
+        //public static void Add(WebUser webUser)
+        //{
+        //    SiemensECommerceContext db = new SiemensECommerceContext();
+        //    webUser.AddDate = DateTime.Now;
+        //    webUser.IsDeleted = false;
 
-            db.WebUsers.Add(webUser);
-            db.SaveChanges();
-        }
+        //    db.WebUsers.Add(webUser);
+        //    db.SaveChanges();
+        //}
 
         public void Delete(int id)
         {

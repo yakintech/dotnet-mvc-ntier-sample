@@ -9,16 +9,16 @@ namespace SiemensECommerce.Business.Manager
 {
     public class SupplierManager
     {
-        public static void Add(Supplier supplier)
-        {
-            SiemensECommerceContext db = new SiemensECommerceContext();
+        //public static void Add(Supplier supplier)
+        //{
+        //    SiemensECommerceContext db = new SiemensECommerceContext();
 
-            supplier.IsDeleted = false;
-            supplier.AddDate = DateTime.Now;
+        //    supplier.IsDeleted = false;
+        //    supplier.AddDate = DateTime.Now;
 
-            db.Suppliers.Add(supplier);
-            db.SaveChanges();
-        }
+        //    db.Suppliers.Add(supplier);
+        //    db.SaveChanges();
+        //}
         public Supplier GetSupplierById(int id)
         {
             SiemensECommerceContext db = new SiemensECommerceContext();

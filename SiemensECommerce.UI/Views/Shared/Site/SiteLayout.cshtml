@@ -35,11 +35,11 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            @* <li><a class="dropdown-item" href="#!">Popular Items</a></li> *@
                             @foreach (var item in ViewBag.categories)
-
                             {
+
                                 <li><a class="dropdown-item" href="/Category/Detail/@item.Id">@item.Name</a></li>
+
                             }
                         </ul>
                     </li>

@@ -11,5 +11,10 @@ namespace SiemensECommerce.UI.Controllers
 
             return View(allProducts);
         }
+
+        public IActionResult ProductDetail()
+        {
+            return View();
+        }
     }
 }

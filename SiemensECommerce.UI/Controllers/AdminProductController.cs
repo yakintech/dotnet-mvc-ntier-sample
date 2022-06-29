@@ -16,8 +16,13 @@ namespace SiemensECommerce.UI.Controllers
         }
         public IActionResult Add()
         {
-           
-            return View();
+            BrandManager brandManager = new BrandManager();
+           ProductListVM products = new ProductListVM();
+            products.categories = unitOfWork.CategoryRepository.GetAll();
+            products.suppliers = unitOfWork.SupplierRepository.GetAll();
+            products.brands = brandManager.GetBrands();
+
+            return View(products);
         }
 
         [HttpPost]

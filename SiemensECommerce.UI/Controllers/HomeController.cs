@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SiemensECommerce.Business.Manager;
+using SiemensECommerce.Business.Repository;
 
 namespace SiemensECommerce.UI.Controllers
 {
@@ -12,9 +14,10 @@ namespace SiemensECommerce.UI.Controllers
             return View(allProducts);
         }
 
-        public IActionResult ProductDetail()
+        public IActionResult ProductDetail(int id)
         {
-            return View();
+            var productId = unitOfWork.ProductRepository.GetEntityByIdQuery(id).Include(q => q.Category).FirstOrDefault();
+            return View(productId);
         }
     }
 }

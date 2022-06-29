@@ -10,22 +10,14 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            ProductManager productManager = new ProductManager();
-            var products = productManager.GetProducts();
+          
+            var products = unitOfWork.ProductRepository.GetAll();
             return View(products);
         }
         public IActionResult Add()
         {
-            CategoryManager categoryManager = new CategoryManager();
-            SupplierManager supplierManager = new SupplierManager();
-            BrandManager brandManager = new BrandManager();
-            ProductListVM model = new ProductListVM();
-
-            model.categories = categoryManager.GetCategories();
-            model.suppliers = supplierManager.GetSuppliers();
-            model.brands = brandManager.GetBrands();
-
-            return View(model);
+           
+            return View();
         }
 
         [HttpPost]
@@ -51,7 +43,8 @@ namespace SiemensECommerce.UI.Controllers
                 product.BrandId = model.BrandId;
                 product.MainImage = ImagePath;
                 
-                ProductManager.Add(product);
+                unitOfWork.ProductRepository.Add(product);
+                unitOfWork.Save();
 
                 return RedirectToAction("Index");
             }
@@ -62,13 +55,18 @@ namespace SiemensECommerce.UI.Controllers
 
             
         }
+
+        [HttpGet]
+
         public IActionResult Update(int id)
         {
-            ProductManager productManager = new ProductManager();
-            Product product = productManager.GetProductById(id);
+            //ProductManager productManager = new ProductManager();
+            Product product = unitOfWork.ProductRepository.GetEntityById(id);
 
             return View(product);
         }
+
+        [HttpPost]
 
         public IActionResult Update(Product model)
         {
@@ -81,8 +79,8 @@ namespace SiemensECommerce.UI.Controllers
 
         public IActionResult Delete(int id)
         {
-            ProductManager productManager = new ProductManager();
-            productManager.Delete(id);
+           
+            unitOfWork.ProductRepository.Delete(id);
             return RedirectToAction("Index");
         }
     }

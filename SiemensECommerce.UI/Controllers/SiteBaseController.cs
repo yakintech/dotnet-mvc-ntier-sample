@@ -9,6 +9,11 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class SiteBaseController : Controller
     {
+        public UnitOfWork unitOfWork;
+        public SiteBaseController()
+        {
+            unitOfWork = new UnitOfWork();
+        }
         //Bu metot herhangi bir action çalışmadan önce ÇALIŞACAKTIR.
         public override void OnActionExecuting(ActionExecutingContext context)
         {

@@ -26,6 +26,12 @@ namespace SiemensECommerce.Business.Repository
             return entity;
         }
 
+        public IQueryable<T> GetEntityByIdQuery(int id)
+        {
+            return dbSet.Where(q => q.IsDeleted == false && q.Id == id);
+       
+        }
+
         public void Add(T entity)
         {
             entity.IsDeleted = false;

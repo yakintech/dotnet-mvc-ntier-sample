@@ -10,6 +10,12 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class LoginController : Controller
     {
+
+        UnitOfWork unitOfWork;
+        public LoginController()
+        {
+            unitOfWork = new UnitOfWork();
+        }
         public IActionResult Index()
         {
             return View();
@@ -19,10 +25,9 @@ namespace SiemensECommerce.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string email, string password)
         {
-            //bool adminControl = AdminUserManager.LoginControl(email, password);
+   
 
-            GenericRepository<AdminUser> genericRepository = new GenericRepository<AdminUser>();
-            AdminUser adminuser = genericRepository.GetEntityWithQuery(q => q.EMail == email && q.Password == password);
+            AdminUser adminuser = unitOfWork.AdminUserRepository.GetEntityWithQuery(q => q.EMail == email && q.Password == password);
 
             if (adminuser != null)
             {

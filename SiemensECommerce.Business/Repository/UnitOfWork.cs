@@ -16,6 +16,8 @@ namespace SiemensECommerce.Business.Repository
         GenericRepository<Product> productRepository;
         GenericRepository<AdminUser> adminuserRepository;
         GenericRepository<Brand> brandRepository;
+        GenericRepository<WebUser> webUserRepository;
+
 
 
         public GenericRepository<Brand> BrandRepository
@@ -24,7 +26,7 @@ namespace SiemensECommerce.Business.Repository
             {
                 if(this.brandRepository == null)
                 {
-                    this.brandRepository = new GenericRepository<Brand>();
+                    this.brandRepository = new GenericRepository<Brand>(siemensECommerceContext);
                 }
                 return this.brandRepository;
             }
@@ -34,7 +36,7 @@ namespace SiemensECommerce.Business.Repository
             {
                 if (this.supplierRepository == null)
                 {
-                    this.supplierRepository = new GenericRepository<Supplier>();
+                    this.supplierRepository = new GenericRepository<Supplier>(siemensECommerceContext);
                 }
                 return supplierRepository;
             }
@@ -47,7 +49,7 @@ namespace SiemensECommerce.Business.Repository
             {
                 if (this.productRepository == null)
                 {
-                    this.productRepository = new GenericRepository<Product>();
+                    this.productRepository = new GenericRepository<Product>(siemensECommerceContext);
                 }
                 return productRepository;
             }
@@ -60,7 +62,7 @@ namespace SiemensECommerce.Business.Repository
             {
                 if (this.categoryRepository == null)
                 {
-                    this.categoryRepository = new GenericRepository<Category>();
+                    this.categoryRepository = new GenericRepository<Category>(siemensECommerceContext);
                 }
                 return categoryRepository;
             }
@@ -72,9 +74,22 @@ namespace SiemensECommerce.Business.Repository
             {
                 if (this.adminuserRepository == null)
                 {
-                    this.adminuserRepository = new GenericRepository<AdminUser>();
+                    this.adminuserRepository = new GenericRepository<AdminUser>(siemensECommerceContext);
                 }
                 return adminuserRepository;
+            }
+
+        }
+
+        public GenericRepository<WebUser> WebUserRepository
+        {
+            get
+            {
+                if (this.webUserRepository == null)
+                {
+                    this.webUserRepository = new GenericRepository<WebUser>(siemensECommerceContext);
+                }
+                return webUserRepository;
             }
 
         }

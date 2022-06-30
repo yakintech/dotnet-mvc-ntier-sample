@@ -14,9 +14,10 @@ namespace SiemensECommerce.Business.Repository
         internal SiemensECommerceContext context;
         internal DbSet<T> dbSet;
 
-        public GenericRepository()
+
+        public GenericRepository(SiemensECommerceContext context)
         {
-            context = new SiemensECommerceContext();
+            this.context = context;
             this.dbSet = context.Set<T>();
         }
 

@@ -59,8 +59,9 @@ namespace SiemensECommerce.UI.Controllers
                 webUser.Email = model.Email;
                 webUser.PhoneNumber = model.PhoneNumber;
 
-                GenericRepository<WebUser> genericRepository = new GenericRepository<WebUser>();
-                genericRepository.Add(webUser);
+
+                unitOfWork.WebUserRepository.Add(webUser);
+                unitOfWork.Save();
 
                 //WebUserManager.Add(webUser);
 

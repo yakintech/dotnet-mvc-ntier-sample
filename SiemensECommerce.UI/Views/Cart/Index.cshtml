@@ -1,14 +1,30 @@
-﻿
-
-@{
+﻿@{
     Layout = "~/Views/Shared/Site/SiteLayout.cshtml";
 }
 
 @model List< SiemensECommerce.UI.Models.VM.CartVM>
 
+<button onclick='emptyCart()'>Empty Cart</button>
 <ul>
     @foreach (var item in Model)
     {
-        <li>@item.Name / @item.Quantity</li>
+        <div>
+            <li>@item.Name / @item.Quantity</li>
+            <button onclick='removeItem(@item.ProductId)'>Remove Item</button>
+        </div>
+
     }
 </ul>
+
+<script>
+
+    //Bu fonksiyon tüm sepeti boşaltacak
+    function emptyCart(){
+
+    }
+
+    //bu fonksiyon seçilen ürünü sepetten silecek
+    function removeItem(){
+
+    }
+</script>

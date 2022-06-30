@@ -13,8 +13,17 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "Siemens.Session";
+    options.IdleTimeout = TimeSpan.FromHours(10);
+    options.Cookie.IsEssential = true;
+});
+
 
 var app = builder.Build();
+
+
 
 
 
@@ -28,6 +37,8 @@ app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+app.UseSession();
 
 app.MapControllerRoute(
 name: "default",

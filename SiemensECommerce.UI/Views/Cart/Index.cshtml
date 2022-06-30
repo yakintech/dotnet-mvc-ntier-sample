@@ -1,0 +1,14 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/Site/SiteLayout.cshtml";
+}
+
+@model List< SiemensECommerce.UI.Models.VM.CartVM>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name / @item.Quantity</li>
+    }
+</ul>

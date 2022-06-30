@@ -37,9 +37,35 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/Home/ProductDetail/@item.Id">Add to cart</a></div>
+                  
+                                <div class="text-center"><button onclick='addToCart(@item.Id)' class="btn btn-outline-dark mt-auto">Add to cart</button></div>
                             </div>
                         </div>
                     </div>    
     }         
 </div>
+
+<script>
+
+
+    function addToCart(id){
+
+        var newCart = {
+            ProductId: id
+        }
+
+
+        $.ajax({
+            url:'/cart/addtocart',
+            type:'POST',
+            data: newCart,
+            success: function(data){
+                alert("Ürün sepete başarıyla eklendi!!");
+                $("#cartLength").html(data)
+            }
+        })
+
+    }
+   
+
+</script>

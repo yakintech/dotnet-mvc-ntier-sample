@@ -112,7 +112,7 @@ namespace SiemensECommerce.UI.Controllers
             return Json(cartModel.Count);
         }
 
-
+    [HttpPost]
         public IActionResult RemoveAll()
         {
             HttpContext.Session.SetString("cart", "");

@@ -83,5 +83,19 @@ namespace SiemensECommerce.UI.Controllers
 
             return Json(cartModel.Count);
         }
+
+
+
+
+        public IActionResult RemoveAll()
+        {
+            HttpContext.Session.SetString("cart", "");
+    return Json("");
+        }
+
+
+
+
+
     }
 }

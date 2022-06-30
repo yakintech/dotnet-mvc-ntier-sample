@@ -5,7 +5,7 @@
 @model List< SiemensECommerce.UI.Models.VM.CartVM>
 
 <button onclick='emptyCart()'>Empty Cart</button>
-<ul>
+<ul id="items">
     @foreach (var item in Model)
     {
         <div>
@@ -20,6 +20,16 @@
 
     //Bu fonksiyon tüm sepeti boşaltacak
     function emptyCart(){
+        $.ajax({
+            url:'/cart/removeall',
+            type:'POST',
+            data: null,
+            success: function(data){
+                alert("Sepet boşaltıldı.");
+                document.getElementById("items").remove();
+                document.getElementById("cartLength").innerHTML = "0";
+            }
+        })
 
     }
 

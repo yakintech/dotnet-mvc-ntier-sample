@@ -34,7 +34,18 @@
     }
 
     //bu fonksiyon seçilen ürünü sepetten silecek
-    function removeItem(){
-
+    function removeItem(id){
+          var newCart = {
+            ProductId: id
+        }
+          $.ajax({
+            url:'/cart/removeitem',
+            type:'POST',
+            data: newCart,
+            success: function(data){
+                alert("Ürün sepeti silindi");
+                $("#cartLength").html(data)
+            }
+        })
     }
 </script>

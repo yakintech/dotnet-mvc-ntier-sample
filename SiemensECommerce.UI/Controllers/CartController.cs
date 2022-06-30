@@ -34,7 +34,6 @@ namespace SiemensECommerce.UI.Controllers
             //Öncelikle sepete eklenecek ürünü db den buluyorum...
             Product product = unitOfWork.ProductRepository.GetEntityById(model.ProductId);
 
-
             //Eğer sonuç null gelirse boş bir string ata
             string cart = HttpContext.Session.GetString("cart") ?? "";
 
@@ -50,10 +49,6 @@ namespace SiemensECommerce.UI.Controllers
 
                 cartModel = JsonSerializer.Deserialize<List<CartVM>>(cart);
             }
-
-
-
-
 
             //Ürün sepette varsa miktarını bir arttıracağım yoksa sepete yeni ürünü ekleyeceğim!!! Session üzerindne yapacağız!
 
@@ -84,13 +79,44 @@ namespace SiemensECommerce.UI.Controllers
             return Json(cartModel.Count);
         }
 
+        [HttpPost]
+        public IActionResult RemoveItem(CartVM model)
+        {            
+            Product product = unitOfWork.ProductRepository.GetEntityById(model.ProductId);
 
+            string cart = HttpContext.Session.GetString("cart") ?? "";
+
+            List<CartVM> cartModel;
+            if (cart == "")
+            {
+                cartModel = new List<CartVM>();
+            }
+            else
+            {
+
+                cartModel = JsonSerializer.Deserialize<List<CartVM>>(cart);
+            }
+
+            var cartProduct = cartModel.FirstOrDefault(q => q.ProductId == product.Id);
+
+
+            cartModel.Remove(cartProduct);
+
+
+
+            var newCart = JsonSerializer.Serialize(cartModel);
+
+            HttpContext.Session.SetString("cart", newCart );
+
+
+            return Json(cartModel.Count);
+        }
 
 
         public IActionResult RemoveAll()
         {
             HttpContext.Session.SetString("cart", "");
-    return Json("");
+            return Json("");
         }
 
 

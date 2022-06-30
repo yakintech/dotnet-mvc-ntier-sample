@@ -86,7 +86,7 @@ namespace SiemensECommerce.UI.Controllers
 
 
 
-
+    [HttpPost]
         public IActionResult RemoveAll()
         {
             HttpContext.Session.SetString("cart", "");

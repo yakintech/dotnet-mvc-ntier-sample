@@ -53,6 +53,7 @@ namespace SiemensECommerce.UI.Controllers
             //Ürün sepette varsa miktarını bir arttıracağım yoksa sepete yeni ürünü ekleyeceğim!!! Session üzerindne yapacağız!
 
             var cartProduct = cartModel.FirstOrDefault(q => q.ProductId == product.Id);
+            //var cartQuantity = cartModel.FirstOrDefault(q => q.Quantity == model.Quantity);
 
             if (cartProduct != null)
             {

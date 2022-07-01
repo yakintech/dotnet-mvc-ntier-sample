@@ -43,7 +43,9 @@
   <div class="container">
     <div class="row w-100">
         <div class="col-lg-12 col-md-12 col-12">
+
             <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
+             <button class="btn btn-danger" onclick='emptyCart()'>Empty Cart</button>
             <p class="mb-5 text-center">
                 <i class="text-info font-weight-bold">@Model.Count</i> total item</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
@@ -76,11 +78,9 @@
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync">Add To  Cart</i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash">Remove Item</i>
+                             @*   <button class="btn btn-primary" onclick='AddToCart(@item.ProductId)'>Add To Cart
+                                </button>*@
+                                <button class="btn btn-danger" onclick='removeItem(@item.ProductId)'>Remove Item
                                 </button>
                             </div>
                         </td>
@@ -96,18 +96,11 @@
             </div>
         </div>
     </div>
-    <div class="row mt-4 d-flex align-items-center">
-        <div class="col-sm-6 order-md-2 text-right">
-            <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
-        </div>
-        <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-            <a href="catalog.html">
-                <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
-        </div>
-    </div>
+  
+     
 </div>
 </section>
-<button onclick='emptyCart()'>Empty Cart</button>
+
 
 <script>
 

@@ -62,7 +62,7 @@ namespace SiemensECommerce.UI.Controllers
             else
             {
                 CartVM newCartProduct = new CartVM();
-                newCartProduct.Quantity = 1;
+                newCartProduct.Quantity = 3;
                 newCartProduct.ProductId = product.Id;
                 newCartProduct.Img = product.MainImage;
                 newCartProduct.Name = product.Name;

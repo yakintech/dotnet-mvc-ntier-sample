@@ -61,7 +61,7 @@ namespace SiemensECommerce.UI.Controllers
 
                 //WebUserManager.Add(webUser);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Login");
             }
             else
             {

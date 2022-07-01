@@ -67,7 +67,7 @@ namespace SiemensECommerce.UI.Controllers
                 newCartProduct.Img = product.MainImage;
                 newCartProduct.Name = product.Name;
                 newCartProduct.Description = product.Description;
-
+                newCartProduct.TotalPrice = product.UnitPrice;
                 cartModel.Add(newCartProduct);
             }
 

@@ -4,9 +4,9 @@ namespace SiemensECommerce.UI.Models.VM
 {
     public class WebUserVM
     {
-        [Required(ErrorMessage = "Namwe Name alanı boş bırakılamaz")]
+        [Required(ErrorMessage = "Name alanı boş bırakılamaz")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "SurName Name alanı boş bırakılamaz")]
+        [Required(ErrorMessage = "SurName alanı boş bırakılamaz")]
         public string SurName { get; set; }
         [Required(ErrorMessage = "Email Title alanı boş bırakılamaz")]
         public string Email { get; set; }

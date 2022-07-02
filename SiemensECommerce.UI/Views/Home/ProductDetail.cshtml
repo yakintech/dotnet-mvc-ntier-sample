@@ -37,9 +37,7 @@
                         </div>
                         <p class="lead">@Model.Description</p>
                         <div class="d-flex">
-                            <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="@Model.Quantity">
-                        </td>
+                          <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button" onclick='addToCart(@Model.Id)'>
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart

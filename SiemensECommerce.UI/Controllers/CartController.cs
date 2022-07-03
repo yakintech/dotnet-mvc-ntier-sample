@@ -54,6 +54,9 @@ namespace SiemensECommerce.UI.Controllers
 
             var cartProduct = cartModel.FirstOrDefault(q => q.ProductId == product.Id);
             //var cartQuantity = cartModel.FirstOrDefault(q => q.Quantity == model.Quantity);
+      
+            
+
 
             if (cartProduct != null)
             {
@@ -62,7 +65,7 @@ namespace SiemensECommerce.UI.Controllers
             else
             {
                 CartVM newCartProduct = new CartVM();
-                newCartProduct.Quantity = 3;
+                newCartProduct.Quantity = 1;
                 newCartProduct.ProductId = product.Id;
                 newCartProduct.Img = product.MainImage;
                 newCartProduct.Name = product.Name;

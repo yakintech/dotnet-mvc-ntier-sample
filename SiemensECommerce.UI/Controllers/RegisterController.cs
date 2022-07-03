@@ -54,7 +54,7 @@ namespace SiemensECommerce.UI.Controllers
                 webUser1.Password = model.Password;
                 webUser1.Email = model.Email;
                 webUser1.PhoneNumber = model.PhoneNumber;
-                webUser1.IsDeleted = false;
+                webUser1.IsActive = false;
 
                 unitOfWork.WebUserRepository.Add(webUser1);
                 unitOfWork.Save();

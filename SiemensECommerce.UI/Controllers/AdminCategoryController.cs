@@ -14,10 +14,6 @@ namespace SiemensECommerce.UI.Controllers
 
             var categories = categoryManager.GetCategories();
 
-            categories.RemoveAt(0);
-
-            unitOfWork.Save();
-
             switch (sortOrder)
             {
                 case "name":

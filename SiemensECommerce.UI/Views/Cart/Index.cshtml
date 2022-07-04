@@ -4,41 +4,6 @@
 
 @model List< SiemensECommerce.UI.Models.VM.CartVM>
 
-@*<ul id="items">
-    <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Img</td>
-                    <td>@item.Name</td>
-                    <td>@item.Quantity</td>
-                    <td>
-                        <a class="btn btn-success" role="button">Update</a>
-                    </td>
-                    <td>
-                         <a class="btn btn-danger" role="button">Delete</a>
-                    </td>
-                      
-                </tr>
-
-            }
-        </tbody>
-    </table>
-</div>
-</ul>*@
-
 <section class="pt-5 pb-5">
   <div class="container">
     <div class="row w-100">
@@ -47,7 +12,7 @@
             <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
              <button class="btn btn-danger" onclick='emptyCart()'>Empty Cart</button>
             <p class="mb-5 text-center">
-                <i class="text-info font-weight-bold">@Model.Count</i> total item</p>
+                <i id = "total_item" class="text-info font-weight-bold">@Model.Count</i> total item</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>
@@ -57,10 +22,10 @@
                         <th style="width:20%"></th>
                     </tr>
                 </thead>
+                <tbody>
                 @foreach (var item in Model)
     {
-     <tbody>
-                    <tr>
+                    <tr id="product_@item.ProductId">
                         <td data-th="Product">
                             <div class="row">
                                 <div class="col-md-3 text-left">
@@ -72,7 +37,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td data-th="Price">$@item.TotalPrice<td id=""></td></td>
+                        <td data-th="Price">$@item.TotalPrice<td id="totalprice"></td></td>
                         <td data-th="Quantity">
                             <input type="number" class="form-control form-control-lg text-center" value="@item.Quantity">
                         </td>
@@ -85,10 +50,8 @@
                             </div>
                         </td>
                     </tr>
-                </tbody>
-
     }
-                
+                </tbody>
             </table>
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
@@ -112,8 +75,10 @@
             data: null,
             success: function(data){
                 alert("Sepet boşaltıldı.");
-                document.getElementById("items").remove();
+                //document.getElementById("items").remove();
                 document.getElementById("cartLength").innerHTML = "0";
+                $("tbody tr").remove();
+                $("#total_item").html(0);
             }
         })
 
@@ -131,7 +96,10 @@
             success: function(data){
                 alert("Ürün sepeti silindi");
                 $("#cartLength").html(data)
+                $("#product_"+id).remove();
+                $("#total_item").html(@Model.Count - 1);
             }
-        })
+          })
+          //$( "div" ).remove( ".hello" );
     }
 </script>

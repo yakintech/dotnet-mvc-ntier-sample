@@ -55,15 +55,13 @@
             </table>
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                <h1>$99.00</h1>
+                  <h2 id = "subtotal" >$@Model.Sum(x => x.TotalPrice)</h2>
             </div>
         </div>
     </div>
-  
      
 </div>
 </section>
-
 
 <script>
 
@@ -75,10 +73,10 @@
             data: null,
             success: function(data){
                 alert("Sepet boşaltıldı.");
-                //document.getElementById("items").remove();
                 document.getElementById("cartLength").innerHTML = "0";
                 $("tbody tr").remove();
                 $("#total_item").html(0);
+                $("#subtotal").html("$" + 0);
             }
         })
 
@@ -94,12 +92,12 @@
             type:'POST',
             data: newCart,
             success: function(data){
-                alert("Ürün sepeti silindi");
+                alert("Ürün sepeti silindi" + data);
                 $("#cartLength").html(data)
                 $("#product_"+id).remove();
                 $("#total_item").html(@Model.Count - 1);
+                $("#subtotal").html("$"+@Model.Sum(x=>x.TotalPrice);
             }
           })
-          //$( "div" ).remove( ".hello" );
     }
 </script>

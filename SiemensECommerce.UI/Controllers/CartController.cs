@@ -61,6 +61,7 @@ namespace SiemensECommerce.UI.Controllers
             if (cartProduct != null)
             {
                 cartProduct.Quantity = cartProduct.Quantity + 1;
+                cartProduct.TotalPrice = cartProduct.TotalPrice * cartProduct.Quantity;
             }
             else
             {
@@ -73,7 +74,6 @@ namespace SiemensECommerce.UI.Controllers
                 newCartProduct.TotalPrice = product.UnitPrice;
                 cartModel.Add(newCartProduct);
             }
-
 
             var newCart = JsonSerializer.Serialize(cartModel);
 

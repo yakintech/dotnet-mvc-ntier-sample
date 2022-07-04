@@ -9,8 +9,6 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-         
-
             var allProducts = new ProductManager().GetProducts();
 
             return View(allProducts);

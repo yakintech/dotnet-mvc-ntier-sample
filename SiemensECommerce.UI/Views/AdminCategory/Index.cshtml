@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th id = "demo">@Html.ActionLink("Name","Index",new {sortOrder = ViewBag.SortOrderParam})</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -27,8 +27,11 @@
             }
 
         </tbody>
-
-
     </table>
-
 </div>
+
+<script type="text/javascript">
+    function deneme(){
+        document.getElementById("demo").style.order.toUpperCase();
+    }
+</script>

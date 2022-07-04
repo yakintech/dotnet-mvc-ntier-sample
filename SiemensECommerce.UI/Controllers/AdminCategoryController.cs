@@ -6,12 +6,27 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class AdminCategoryController : AdminBaseController
     {
-        public IActionResult Index()
+        public IActionResult Index(string sortOrder)
         {
+            ViewBag.SortOrderParam = String.IsNullOrEmpty(sortOrder) ? "name" : null; 
+
             CategoryManager categoryManager = new CategoryManager();
 
             var categories = categoryManager.GetCategories();
-            
+
+            categories.RemoveAt(0);
+
+            unitOfWork.Save();
+
+            switch (sortOrder)
+            {
+                case "name":
+                    categories = categories.OrderByDescending(c => c.Name).ToList();
+                    break;
+                default:
+                    categories = categories.OrderBy(c => c.Name).ToList();
+                    break;
+            }
 
             return View(categories);
         }

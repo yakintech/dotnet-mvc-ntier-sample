@@ -1,4 +1,5 @@
-﻿using SiemensECommerce.Data.ORM;
+﻿using Microsoft.EntityFrameworkCore;
+using SiemensECommerce.Data.ORM;
 using System;
 using System.Collections.Generic;
 using System.Linq;

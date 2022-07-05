@@ -28,7 +28,8 @@ namespace SiemensECommerce.Data.ORM
         public DbSet<Brand> Brands { get; set; }
 
         public DbSet<ForgotPassword> ForgotPasswords { get; set; }
-
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
     }
 
 

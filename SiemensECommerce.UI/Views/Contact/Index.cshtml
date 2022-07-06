@@ -2,41 +2,36 @@
     Layout = "~/Views/Shared/Site/SiteLayout.cshtml";
 }
 
-@*@model SiemensECommerce.UI.Models.VM.WebUserVM*@
 @model  SiemensECommerce.UI.Models.VM.ContactVM
 
-
     <form action="/Contact/Index" method = "post">
-
+   
           @Html.ValidationSummary()
 
-    <div class="form-group">
+           <div class="form-group">
         <label>Name:</label>
         @Html.TextBoxFor(q => q.Name, new {@class = "form-control"})
     </div>
-      <div class="form-group">
-        <label>Surname:</label>
-        @Html.TextBoxFor(q => q.SurName, new {@class = "form-control"})
-    </div>
+
      <div class="form-group">
-        <label>Email:</label>
-        @Html.TextBoxFor(q => q.Email, new {@class = "form-control"})
-    </div>
-    <div class="form-group">
-        <label>Password:</label>
-        @Html.PasswordFor(q => q.Password, new {@class = "form-control"})
+        <label>Surname:</label>
+        @Html.TextBoxFor(q => q.Surname, new {@class = "form-control"})
     </div>
 
-        <div class="form-group">
-        <label>Confirm Password:</label>
-        @Html.PasswordFor(q => q.ConfirmPassword, new {@class = "form-control"})
+     <div class="form-group">
+        <label>Phone:</label>
+        @Html.TextBoxFor(q => q.Phone, new {@class = "form-control"})
+    </div>
+    <div class="form-grpup">
+        <lable>Email:</lable>
+        @Html.TextBoxFor(q=>q.Email, new {@class="form-control"})
     </div>
       <div class="form-group">
-        <label>Phone Number:</label>
-        @Html.TextBoxFor(q => q.PhoneNumber, new {@class = "form-control"})
-    </div>
-    <div>
-        <button class="btn btn-success">Register</button>
+        <label>Message:</label>
+        @Html.TextBoxFor(q => q.Message, new {@class = "form-control"})
     </div>
 
+      <div>
+        <button href="/Contact/Index" class="btn btn-success">Create Record</button>
+    </div>
     </form>

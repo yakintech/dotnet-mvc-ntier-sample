@@ -9,6 +9,13 @@ namespace SiemensECommerce.Data.ORM
 {
     public class OrderDetail:BaseEntity
     {
+
+        public int OrderId { get; set; }
+
+
+        [ForeignKey("OrderId")]
+        public Order Order { get; set; }
+
         public int Quantity { get; set; }
         public int ProductId { get; set; }
 

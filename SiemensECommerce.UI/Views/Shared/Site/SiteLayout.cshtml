@@ -30,6 +30,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="~/Home/Index">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="~/Login/Index">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="~/Register/">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="~/Contact/">Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
@@ -38,12 +39,12 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            @foreach (var item in ViewBag.categories)
+                           @* @foreach (var item in ViewBag.categories)
                             {
 
                                 <li><a class="dropdown-item" href="/Category/Detail/@item.Id">@item.Name</a></li>
 
-                            }
+                            }*@
                         </ul>
                     </li>
                 </ul>

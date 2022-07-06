@@ -55,8 +55,15 @@
             </table>
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                  <h2 id = "subtotal" >$@Model.Sum(x => x.TotalPrice)</h2>
+                  <h2 id = "subtotal" >$@Model.Sum(x => x.TotalPrice)</h2> <br />
+                
             </div>
+               <div class="order"> 
+                      <a class="btn btn-success" href="~/Order/OrderAdd">Order
+                                </a>
+
+               </div>
+
         </div>
     </div>
      

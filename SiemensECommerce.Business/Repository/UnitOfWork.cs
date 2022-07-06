@@ -17,8 +17,8 @@ namespace SiemensECommerce.Business.Repository
         GenericRepository<AdminUser> adminuserRepository;
         GenericRepository<Brand> brandRepository;
         GenericRepository<WebUser> webUserRepository;
-
-
+        GenericRepository<Order> orderRepository;
+        GenericRepository<OrderDetail> orderdetailRepository;
 
         public GenericRepository<Brand> BrandRepository
         {
@@ -90,6 +90,31 @@ namespace SiemensECommerce.Business.Repository
                     this.webUserRepository = new GenericRepository<WebUser>(siemensECommerceContext);
                 }
                 return webUserRepository;
+            }
+
+        }
+        public GenericRepository<Order> OrderRepository
+        {
+            get
+            {
+                if (this.supplierRepository == null)
+                {
+                    this.supplierRepository = new GenericRepository<Supplier>(siemensECommerceContext);
+                }
+                return orderRepository;
+            }
+
+        }
+
+        public GenericRepository<OrderDetail> OrderDetailRepository
+        {
+            get
+            {
+                if (this.supplierRepository == null)
+                {
+                    this.supplierRepository = new GenericRepository<Supplier>(siemensECommerceContext);
+                }
+                return orderdetailRepository;
             }
 
         }

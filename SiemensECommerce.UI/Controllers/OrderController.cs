@@ -10,15 +10,10 @@ namespace SiemensECommerce.UI.Controllers
         {
             return View();
         }
-        public IActionResult OrderAdd()
-        {
-            return View();
-        }
         public IActionResult Add()
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult Add(OrderVM model)
         {
@@ -34,8 +29,6 @@ namespace SiemensECommerce.UI.Controllers
 
                 unitOfWork.OrderRepository.Add(order);
                 unitOfWork.Save();
-
-                //WebUserManager.Add(webUser);
 
                 return RedirectToAction("Index");
             }

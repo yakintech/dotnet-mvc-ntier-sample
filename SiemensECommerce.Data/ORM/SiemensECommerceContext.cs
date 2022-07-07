@@ -31,6 +31,7 @@ namespace SiemensECommerce.Data.ORM
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Cargo> Cargos { get; set; }
     }
 
 

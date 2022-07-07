@@ -6,9 +6,12 @@ namespace SiemensECommerce.UI.Models.VM
     {
         [Required(ErrorMessage = "Name alanı boş bırakılamaz")]
         public string Name { get; set; }
+
         [Required(ErrorMessage = "SurName alanı boş bırakılamaz")]
         public string SurName { get; set; }
-        [Required(ErrorMessage = "Email Title alanı boş bırakılamaz")]
+
+        [Required(ErrorMessage = "Eposta alanı boş bırakılamaz.")]
+        [EmailAddress(ErrorMessage ="Eposta formatına uygun bir adres giriniz.")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password alanı boş bırakılamaz")]
@@ -18,6 +21,9 @@ namespace SiemensECommerce.UI.Models.VM
         [Compare("Password", ErrorMessage = "Password ve Confirm Password alanları aynı olmak zorunda")]
         [Required(ErrorMessage = "Confirm Password alanı boş bırakılamaz")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Telefon numarası alanı boş bırakılamaz.")]
+        [Phone(ErrorMessage = "Uygun bir telefon numarası giriniz.")]
         public string PhoneNumber { get; set; }
     }
 }

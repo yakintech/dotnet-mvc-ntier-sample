@@ -14,35 +14,7 @@ namespace SiemensECommerce.UI.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add(WebUserVM model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        WebUser webuser1 = new WebUser();
-        //        webuser1.Name = model.Name;
-        //        webuser1.SurName = model.SurName;
-        //        webuser1.Email = model.Email;    
-        //        webuser1.Password = model.Password;
-        //        webuser1.PhoneNumber = model.PhoneNumber;
-        //        webuser1.IsDeleted = false;
 
-        //        unitOfWork.WebUserRepository.Add(webuser1);
-        //        unitOfWork.Save();
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-
-
-        //}
-        public IActionResult Add()
-        {
-            return View();
-        }
         [HttpPost]
         public IActionResult Add(WebUserVM model)
         {
@@ -55,21 +27,15 @@ namespace SiemensECommerce.UI.Controllers
                 webUser1.Email = model.Email;
                 webUser1.PhoneNumber = model.PhoneNumber;
                 webUser1.IsActive = false;
-
                 unitOfWork.WebUserRepository.Add(webUser1);
                 unitOfWork.Save();
-
-               
-
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-            }
+
+            return View();
         }
 
-        public ActionResult UyeOl(string EMail  ,string Password)
+        public ActionResult UyeOl(string EMail, string Password)
         {
             //Basit olarak girilen verileri viewbag e atıp 
             //UyeOlView mizde gösteriyoruz.
@@ -80,4 +46,4 @@ namespace SiemensECommerce.UI.Controllers
 
 
     }
-    }
+}

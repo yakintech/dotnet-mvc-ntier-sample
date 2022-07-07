@@ -4,7 +4,7 @@
 
 @model SiemensECommerce.UI.Models.VM.WebUserVM
 
-    <form action="/Register/" method = "post">
+    <form action="/Register/Add" method = "post">
 
           @Html.ValidationSummary()
 
@@ -34,7 +34,7 @@
         @Html.TextBoxFor(q => q.PhoneNumber, new {@class = "form-control"})
     </div>
     <div>
-        <button class="btn btn-success">Register</button>
+        <button class="btn btn-success" type="submit">Register</button>
     </div>
 
     </form>

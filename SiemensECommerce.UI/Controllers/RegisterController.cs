@@ -35,15 +35,5 @@ namespace SiemensECommerce.UI.Controllers
             return View();
         }
 
-        public ActionResult UyeOl(string EMail, string Password)
-        {
-            //Basit olarak girilen verileri viewbag e atıp 
-            //UyeOlView mizde gösteriyoruz.
-            ViewBag.Email = EMail;
-            ViewBag.Password = Password;
-            return View();
-        }
-
-
     }
 }

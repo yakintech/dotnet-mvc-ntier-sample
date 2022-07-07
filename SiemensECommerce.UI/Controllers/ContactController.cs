@@ -9,27 +9,22 @@ namespace SiemensECommerce.UI.Controllers
         public IActionResult Index()
         {
             return View();
-            
-        }
-        [HttpGet]
-        public IActionResult Add()
-        {
-            return View();
         }
 
         [HttpPost]
-        public IActionResult Add(ContactVM model)
+        public IActionResult Index(ContactVM model)
         {
             if (ModelState.IsValid)
             {
-                Contact contact = new Contact();
-                contact.Name = model.Name;
-                contact.Surname = model.Surname;
-                contact.Phone = model.Phone;
-                contact.Email = model.Email;
-                contact.Message = model.Message;
+                Contact contact1 = new Contact();
+                contact1.Name = model.Name;
+                contact1.Surname = model.Surname;
+                contact1.Phone = model.Phone;
+                contact1.Email = model.Email;
+                contact1.Message = model.Message;
+                contact1.AddDate = DateTime.Now;
 
-                unitOfWork.contactRepsitory.Add(contact);
+                unitOfWork.ContactRepository.Add(contact1);
                 unitOfWork.Save();
 
                 return RedirectToAction("Index");
@@ -38,6 +33,9 @@ namespace SiemensECommerce.UI.Controllers
             {
                 return View();
             }
+
+
         }
+
     }
 }

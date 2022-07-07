@@ -18,18 +18,22 @@
         @Html.TextBoxFor(q => q.Surname, new {@class = "form-control"})
     </div>
 
+      <div class="form-grpup">
+        <lable>Email:</lable>
+        @Html.TextBoxFor(q=>q.Email, new {@class="form-control"})
+    </div>
+
+
      <div class="form-group">
         <label>Phone:</label>
         @Html.TextBoxFor(q => q.Phone, new {@class = "form-control"})
     </div>
-    <div class="form-grpup">
-        <lable>Email:</lable>
-        @Html.TextBoxFor(q=>q.Email, new {@class="form-control"})
-    </div>
+  
       <div class="form-group">
         <label>Message:</label>
         @Html.TextBoxFor(q => q.Message, new {@class = "form-control"})
+        </div>
       <div>
-        <button href="/Contact/Index" class="btn btn-success">Create Record</button>
+        <button type="submit" class="btn btn-success">Create Record</button>
     </div>
     </form>

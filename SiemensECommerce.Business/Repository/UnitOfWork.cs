@@ -110,9 +110,9 @@ namespace SiemensECommerce.Business.Repository
         {
             get
             {
-                if (this.supplierRepository == null)
+                if (this.orderRepository == null)
                 {
-                    this.supplierRepository = new GenericRepository<Supplier>(siemensECommerceContext);
+                    this.orderRepository = new GenericRepository<Order>(siemensECommerceContext);
                 }
                 return orderRepository;
             }
@@ -122,9 +122,9 @@ namespace SiemensECommerce.Business.Repository
         {
             get
             {
-                if (this.supplierRepository == null)
+                if (this.orderdetailRepository == null)
                 {
-                    this.supplierRepository = new GenericRepository<Supplier>(siemensECommerceContext);
+                    this.orderdetailRepository = new GenericRepository<OrderDetail>(siemensECommerceContext);
                 }
                 return orderdetailRepository;
             }

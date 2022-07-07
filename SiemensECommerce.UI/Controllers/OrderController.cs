@@ -8,7 +8,9 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var orders = unitOfWork.OrderRepository.GetAll();
+            return View(orders);
+          
         }
         public IActionResult Add()
         {

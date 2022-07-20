@@ -20,6 +20,19 @@ namespace SiemensECommerce.Business.Repository
         GenericRepository<Order> orderRepository;
         GenericRepository<OrderDetail> orderdetailRepository;
         GenericRepository<Contact> contactRepository;
+        GenericRepository<Cargo> cargoRepsitory;
+
+        public GenericRepository<Cargo> CargoRepository
+        {
+            get
+            {
+                if(this.cargoRepsitory == null)
+                {
+                    this.cargoRepsitory = new GenericRepository<Cargo>(siemensECommerceContext);
+                }
+                return this.cargoRepsitory;
+            }
+        }
 
         public GenericRepository<Contact> ContactRepository
         {

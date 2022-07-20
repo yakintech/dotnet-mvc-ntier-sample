@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 using SiemensECommerce.Business.Manager;
 using SiemensECommerce.Business.Repository;
 using SiemensECommerce.Data.ORM;
@@ -13,8 +15,8 @@ namespace SiemensECommerce.UI.Controllers
         public IActionResult Index()
         {
             AdminUserManager adminUserManager = new AdminUserManager();
-
-            var adminusers = adminUserManager.GetAdminUsers();
+            var loggedinAdmin = HttpContext.User.Claims.FirstOrDefault(q => q.Type == ClaimTypes.Email)?.Value;
+            var adminusers = adminUserManager.GetAdminUsers().Where(q => q.EMail != loggedinAdmin).ToList();
             return View(adminusers);
         }
 

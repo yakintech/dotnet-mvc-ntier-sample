@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+@model List<Contact>
+
+    <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Message</td>
+                    <td>
+                         <a class="btn btn-danger" href="/AdminContact/Delete/@item.Id" role="button">Delete</a>
+                    </td>                
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</div>

@@ -86,6 +86,7 @@ namespace SiemensECommerce.UI.Controllers
         {
            
             unitOfWork.ProductRepository.Delete(id);
+            unitOfWork.Save();
             return RedirectToAction("Index");
         }
     }

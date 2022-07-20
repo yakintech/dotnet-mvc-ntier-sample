@@ -6,6 +6,8 @@ namespace SiemensECommerce.UI.Controllers
 {
     public class ContactController : SiteBaseController
     {
+
+        //[Route("iletisim")]
         public IActionResult Index()
         {
             return View();

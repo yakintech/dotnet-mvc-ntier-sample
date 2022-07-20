@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SiemensECommerce.UI.Models.Helpers;
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +44,7 @@
                           @foreach (var item in ViewBag.categories)
                             {
 
-                                <li><a class="dropdown-item" href="/Category/Detail/@item.Id">@item.Name</a></li>
+                                <li><a class="dropdown-item" href="/Category/@UrlHelper.ToUrlSlug(item.Name)/@item.Id">@item.Name</a></li>
 
                             }
                         </ul>

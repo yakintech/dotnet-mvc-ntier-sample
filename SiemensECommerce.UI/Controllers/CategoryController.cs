@@ -9,8 +9,10 @@ namespace SiemensECommerce.UI.Controllers
         {
             return View();
         }
+         
 
-        public IActionResult Detail(int id)
+        [Route("Category/{name}/{id}")]
+        public IActionResult Detail(string name, int id)
         {
             var work = new UnitOfWork();
             var categoryProducts = work.ProductRepository.GetAll().Where(q => q.CategoryId == id).ToList();

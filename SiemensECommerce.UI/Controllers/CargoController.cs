@@ -4,7 +4,7 @@ using SiemensECommerce.UI.Models.VM;
 
 namespace SiemensECommerce.UI.Controllers
 {
-    public class CargoController : SiteBaseController
+    public class CargoController : AdminBaseController
     {
         public IActionResult Index()
         {
@@ -29,7 +29,7 @@ namespace SiemensECommerce.UI.Controllers
                 unitOfWork.CargoRepository.Add(cargo);
                 unitOfWork.Save();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Add");
             }
             else
             {

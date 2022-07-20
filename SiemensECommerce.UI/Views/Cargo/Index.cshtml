@@ -1,0 +1,31 @@
+﻿@{
+     Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+@model List<Cargo>
+<div class ="table-responsive">
+     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+         <thead>
+             <tr>
+                 <th>Id</th>
+                 <th>Name</th>
+                 <th>Description</th>
+                 <th>Update</th>
+                 <th>Delete</th>
+             </tr>
+         </thead>
+         <tbody>
+             @foreach (var item in Model)
+             {
+                 <tr>
+                     <td>@item.Id</td>
+                     <td>@item.Name</td>
+                     <td>@item.Description</td>  
+                     <td><a class="btn btn-success" href="/Cargo/Update/@item.Id" role="button">Update</a></td>
+                     <td><a class="btn btn-danger" href="/Cargo/Delete/@item.Id" role="button">Delete</a></td>
+          
+                 </tr>
+             }
+         </tbody>
+     </table>
+</div>

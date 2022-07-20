@@ -11,6 +11,11 @@ namespace SiemensECommerce.UI.Controllers
             var cargo = unitOfWork.CargoRepository.GetAll();
             return View(cargo);
         }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Add(CargoVM model)

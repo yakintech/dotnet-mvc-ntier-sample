@@ -9,13 +9,16 @@ namespace SiemensECommerce.UI.Controllers
         public IActionResult Index()
         {
             var orders = unitOfWork.OrderRepository.GetAll();
+            var webusers = unitOfWork.WebUserRepository.GetAll();
+
             return View(orders);
-          
+
         }
         public IActionResult Add()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Add(OrderVM model)
         {
@@ -23,11 +26,10 @@ namespace SiemensECommerce.UI.Controllers
             {
                 Order order = new Order();
                 order.Adress = model.Adress;
-                order.Phone = model.Phone;
-                order.FirstName = model.FirstName;
-                order.LastName = model.LastName;
-                order.EMail = model.EMail;
-
+                order.WebUser.PhoneNumber = model.WebUser.PhoneNumber;
+                order.WebUser.Name = model.WebUser.Name;
+                order.WebUser.SurName = model.WebUser.SurName;
+                order.WebUser.Email = model.WebUser.Email;
 
                 unitOfWork.OrderRepository.Add(order);
                 unitOfWork.Save();

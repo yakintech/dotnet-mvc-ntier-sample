@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin/AdminLayout.cshtml";
+}
+
+@model List<OrderDetail>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th> 
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> <a href="/Home/ProductDetail/@item.Product.Id"> @item.Product.Name  </a></td>
+                    <td>@item.Product.Category.Name</td>
+                    <td id="Quantity">@item.Quantity</td>
+                    <td id="UnitPrice">@item.Product.UnitPrice</td>
+                    <td id="rowPrice"> @(item.Quantity * item.Product.UnitPrice) </td>
+                </tr>
+            }
+
+            <h3 id= "h3"></h3>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script> 
+                function calculatePrice() {
+                var rowPrice =$("#UnitPrice").val() * $('#Quantity').val();
+                $("rowPrice").html(1);
+                }
+
+                var totalPrice += rowPrice;
+                $("h3").html("$" + totalPrice);
+          
+                </script>

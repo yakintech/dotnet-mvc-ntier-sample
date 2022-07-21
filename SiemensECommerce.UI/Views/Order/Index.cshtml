@@ -16,6 +16,7 @@
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>EMail</th>  
+                <th>Order Detail</th>  
                 
             </tr>
         </thead>
@@ -25,11 +26,12 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Adress</td>
-                    <td>@item.Phone</td>
+                    <td>@item.WebUser.PhoneNumber</td>
                     <td>@item.TotalPrice</td>
-                    <td>@item.FirstName</td>
-                    <td>@item.LastName</td>
-                    <td>@item.EMail</td>
+                    <td>@item.WebUser.Name</td>
+                    <td>@item.WebUser.SurName</td>
+                    <td>@item.WebUser.Email</td>
+                    <td><a href='/OrderDetail/Index/@item.Id'> Detail</a> </td>
                 </tr>
             }
 

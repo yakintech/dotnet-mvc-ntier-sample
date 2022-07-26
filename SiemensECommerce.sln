@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiemensECommerce.Data", "Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiemensECommerce.Business", "SiemensECommerce.Business\SiemensECommerce.Business.csproj", "{9720A5DB-91C1-4B8F-994A-32E9DD18D49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiemensECommerce.OOPSample", "SiemensECommerce.OOPSample\SiemensECommerce.OOPSample.csproj", "{AF2B1CAA-242C-47AE-B972-AAC6820117C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiemensECommerce.OOPSample", "SiemensECommerce.OOPSample\SiemensECommerce.OOPSample.csproj", "{AF2B1CAA-242C-47AE-B972-AAC6820117C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiemensECommerce.Test", "SiemensECommerce.Test\SiemensECommerce.Test.csproj", "{DD9D4DFA-D856-4F04-BEC9-9C0578C1D22D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AF2B1CAA-242C-47AE-B972-AAC6820117C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2B1CAA-242C-47AE-B972-AAC6820117C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF2B1CAA-242C-47AE-B972-AAC6820117C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9D4DFA-D856-4F04-BEC9-9C0578C1D22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9D4DFA-D856-4F04-BEC9-9C0578C1D22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9D4DFA-D856-4F04-BEC9-9C0578C1D22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9D4DFA-D856-4F04-BEC9-9C0578C1D22D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

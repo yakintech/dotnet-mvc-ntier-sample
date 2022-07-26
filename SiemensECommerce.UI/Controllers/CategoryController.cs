@@ -7,6 +7,8 @@ namespace SiemensECommerce.UI.Controllers
     {
         public IActionResult Index()
         {
+           
+
             return View();
         }
          
@@ -19,5 +21,7 @@ namespace SiemensECommerce.UI.Controllers
 
             return View(categoryProducts);
         }
+
+
     }
 }
